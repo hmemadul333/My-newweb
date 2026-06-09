@@ -60,7 +60,6 @@
             border-left: 5px solid #2196F3;
         }
 
-        /* Border colors for each card */
         .cricket-card { border-left-color: #4CAF50; }
         .football-card { border-left-color: #FFC107; }
         .freefire-card { border-left-color: #ff4500; }
@@ -81,14 +80,14 @@
             margin-bottom: 0;
         }
 
-        /* JavaScript Counter Styling */
+        /* Global Visitor Counter Styling */
         .counter-section {
             text-align: center;
             margin-top: 40px;
             margin-bottom: 20px;
-            padding: 20px;
+            padding: 15px;
             background-color: #ffffff;
-            border-radius: 12px;
+            border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
@@ -97,18 +96,13 @@
             color: #777;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
-        .counter-number {
-            font-size: 32px;
-            font-weight: bold;
-            color: #2196F3;
-            background: #e3f2fd;
-            padding: 5px 20px;
-            border-radius: 8px;
-            display: inline-block;
-            letter-spacing: 2px;
+        .counter-img {
+            display: block;
+            margin: 0 auto;
+            height: 45px; /* কাউন্টারটি সুন্দর বড় দেখানোর জন্য */
         }
     </style>
 </head>
@@ -149,25 +143,11 @@
         </div>
 
         <div class="counter-section">
-            <div class="counter-title">🌐 Total Page Views</div>
-            <div class="counter-number" id="visitor-count">00001</div>
+            <div class="counter-title">🌐 Total Real Page Views</div>
+            <img class="counter-img" src="https://komarev.com/ghvc/?username=hmemadul333-my-newweb&color=blue&style=flat-square" alt="Real Hits">
         </div>
 
     </div>
-
-    <script>
-        // এটি আপনার ব্রাউজারের লোকাল মেমোরি ব্যবহার করে প্রতি রিফ্রেশে সংখ্যা বাড়াবে
-        let count = localStorage.getItem('page_view');
-        if (count === null) {
-            count = 1;
-        } else {
-            count = parseInt(count) + 1;
-        }
-        localStorage.setItem('page_view', count);
-        
-        // সংখ্যাটিকে সুন্দর ৫ ডিজিটের ফরম্যাটে দেখানোর জন্য (যেমন: 00005)
-        document.getElementById('visitor-count').innerText = count.toString().padStart(5, '0');
-    </script>
 
 </body>
 </html>
