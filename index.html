@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Hobby Website</title>
+    <title>My Sports & Gaming Website</title>
     <style>
         body {
             background-color: #f0f8ff;
@@ -52,12 +52,10 @@
             transition: transform 0.2s;
         }
 
-        .freefire-card { border-left-color: #ff4500; }
-        .drstone-card { border-left-color: #4CAF50; }
-        .rent-card { border-left-color: #E91E63; }
-        .masamune-card { border-left-color: #9C27B0; }
-        .bluelock-card { border-left-color: #00BCD4; }
-        .cote-card { border-left-color: #3F51B5; }
+        /* Border colors for each section */
+        .cricket-card { border-left-color: #4CAF50; } /* Green */
+        .football-card { border-left-color: #FFC107; } /* Yellow */
+        .gaming-card { border-left-color: #9C27B0; } /* Purple */
 
         h2 {
             margin-top: 0;
@@ -73,48 +71,63 @@
             color: #555;
             margin-bottom: 0;
         }
+
+        /* Visitor Counter Styling */
+        .counter-section {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .counter-title {
+            font-size: 14px;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .counter-img {
+            display: block;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
 
     <div class="header-section">
-        <h1>Welcome to My Digital Notebook! 🎮🌱</h1>
-        <p class="subtitle">I am learning coding using my mobile phone, and this is my first web page.</p>
+        <h1>Welcome to My Digital Notebook! 🏏⚽🎮</h1>
+        <p class="subtitle">I am learning coding using my mobile phone, and this is my updated web page.</p>
         <hr class="divider">
     </div>
 
     <div class="container">
 
-        <div class="card freefire-card">
-            <h2 style="color: #ff4500;">My Favorite Game: Free Fire 🎯</h2>
-            <p>I love to play Free Fire in my free time. It helps me improve my quick decision-making skills, which also helps me in coding!</p>
+        <div class="card cricket-card">
+            <h2 style="color: #4CAF50;">My Absolute Favorite: Cricket 🏏🔥</h2>
+            <p>I am really passionate about playing cricket, and I am quite good at it! It is a sport that brings out my competitive spirit and true enjoyment whenever I hit the field.</p>
         </div>
 
-        <h2 style="text-align: center; margin: 35px 0 20px 0; color: #333;">My Favorite Anime Series 🍿🔥</h2>
-
-        <div class="card drstone-card">
-            <h2 style="color: #4CAF50;">Dr. Stone 🧪</h2>
-            <p>An incredible sci-fi anime where thousands of years after the entire human race turns to stone, a genius high schooler named Senku uses the power of science to rebuild civilization from scratch.</p>
+        <div class="card football-card">
+            <h2 style="color: #FFC107;">My Love for Football ⚽⚡</h2>
+            <p>I also have a strong liking for football. Although I am not the best player out there yet, I genuinely love the thrill and atmosphere of the game.</p>
         </div>
 
-        <div class="card rent-card">
-            <h2 style="color: #E91E63;">Rent-a-Girlfriend 🌸</h2>
-            <p>A hilarious romantic-comedy series. It follows Kazuya Kinoshita and Chizuru Mizuhara as they navigate a fake relationship full of funny misunderstandings, drama, and unexpected turns.</p>
+        <div class="card gaming-card">
+            <h2 style="color: #9C27B0;">Gaming & Other Sports 🎮🎯</h2>
+            <p>Apart from outdoor sports, I am incredibly fond of other games too. Exploring different kinds of gaming formats keeps my mind sharp and always entertained!</p>
         </div>
 
-        <div class="card masamune-card">
-            <h2 style="color: #9C27B0;">Masamune-kun's Revenge 🔄</h2>
-            <p>A fun story about Masamune Makabe, who completely transforms himself into a handsome student to seek revenge on his childhood bully, leading to a complex and dramatic school life.</p>
-        </div>
-
-        <div class="card bluelock-card">
-            <h2 style="color: #00BCD4;">Blue Lock ⚽⚡</h2>
-            <p>An intense, high-hype sports anime focused on soccer. It features a revolutionary training camp where top forward players from Japan ruthlessly compete against each other to become the world's greatest striker.</p>
-        </div>
-
-        <div class="card cote-card">
-            <h2 style="color: #3F51B5;">Classroom of the Elite 🧠🛡️</h2>
-            <p>Set in a prestigious high school where students face intense competition, this thriller centers around the brilliant and mysterious Kiyotaka Ayanokoji, who secretly manipulates events from behind the scenes.</p>
+        <div class="counter-section">
+            <div class="counter-title">🌐 Total Page Views</div>
+            <img class="counter-img" src="https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fhmemadul333.github.io%2FMy-newweb%2F" alt="Hits">
         </div>
 
     </div>
