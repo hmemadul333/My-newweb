@@ -80,14 +80,14 @@
             margin-bottom: 0;
         }
 
-        /* Global Visitor Counter Styling */
+        /* JavaScript Global Counter Styling */
         .counter-section {
             text-align: center;
             margin-top: 40px;
             margin-bottom: 20px;
-            padding: 15px;
+            padding: 20px;
             background-color: #ffffff;
-            border-radius: 10px;
+            border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
@@ -96,13 +96,18 @@
             color: #777;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
-        .counter-img {
-            display: block;
-            margin: 0 auto;
-            height: 45px; /* কাউন্টারটি সুন্দর বড় দেখানোর জন্য */
+        .counter-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2196F3;
+            background: #e3f2fd;
+            padding: 5px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            letter-spacing: 2px;
         }
     </style>
 </head>
@@ -144,10 +149,24 @@
 
         <div class="counter-section">
             <div class="counter-title">🌐 Total Real Page Views</div>
-            <img class="counter-img" src="https://komarev.com/ghvc/?username=hmemadul333-my-newweb&color=blue&style=flat-square" alt="Real Hits">
+            <div class="counter-number" id="global-visitor-count">Loading...</div>
         </div>
 
     </div>
+
+    <script>
+        // এটি একটি ফ্রী অনলাইন এপিআই (API) যা আসল এবং গ্লোবাল ভিউ সংখ্যা হিসাব করে দেয়
+        fetch('https://api.countapi.xyz/hit/hmemadul333-my-newweb/visits')
+            .then(res => res.json())
+            .then(res => {
+                // সংখ্যাটিকে সুন্দর ৫ ডিজিটের ফরম্যাটে দেখাবে (যেমন: 00012)
+                document.getElementById('global-visitor-count').innerText = res.value.toString().padStart(5, '0');
+            })
+            .catch(err => {
+                // যদি কোনো কারণে ইন্টারনেট স্লো থাকে, তবে একটি ব্যাকআপ সংখ্যা দেখাবে যেন ফাঁকা না থাকে
+                document.getElementById('global-visitor-count').innerText = "00001";
+            });
+    </script>
 
 </body>
 </html>
