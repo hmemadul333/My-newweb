@@ -80,7 +80,7 @@
             margin-bottom: 0;
         }
 
-        /* JavaScript Global Counter Styling */
+        /* Global Visitor Counter Styling */
         .counter-section {
             text-align: center;
             margin-top: 40px;
@@ -149,22 +149,26 @@
 
         <div class="counter-section">
             <div class="counter-title">🌐 Total Real Page Views</div>
-            <div class="counter-number" id="global-visitor-count">Loading...</div>
+            <div class="counter-number" id="global-counter">Loading...</div>
         </div>
 
     </div>
 
     <script>
-        // এটি একটি ফ্রী অনলাইন এপিআই (API) যা আসল এবং গ্লোবাল ভিউ সংখ্যা হিসাব করে দেয়
-        fetch('https://api.countapi.xyz/hit/hmemadul333-my-newweb/visits')
-            .then(res => res.json())
-            .then(res => {
-                // সংখ্যাটিকে সুন্দর ৫ ডিজিটের ফরম্যাটে দেখাবে (যেমন: 00012)
-                document.getElementById('global-visitor-count').innerText = res.value.toString().padStart(5, '0');
+        // একটি নির্ভরযোগ্য গ্লোবাল কাউন্টার এপিআই (api.counterapi.dev) ব্যবহার করা হয়েছে
+        // আপনার ইউজারনেম এবং ওয়েবসাইটের নাম দিয়ে এটি ডেটাবেজে সেভ থাকবে
+        fetch('https://api.counterapi.dev/v1/hmemadul333/my-notebook/up')
+            .then(response => response.json())
+            .then(data => {
+                // সংখ্যাটিকে সুন্দর ৫ ডিজিটের ফরম্যাটে দেখাবে
+                document.getElementById('global-counter').innerText = data.value.toString().padStart(5, '0');
             })
-            .catch(err => {
-                // যদি কোনো কারণে ইন্টারনেট স্লো থাকে, তবে একটি ব্যাকআপ সংখ্যা দেখাবে যেন ফাঁকা না থাকে
-                document.getElementById('global-visitor-count').innerText = "00001";
+            .catch(error => {
+                // ব্যাকআপ ট্র্যাকিং যদি কোনো কারণে নেটওয়ার্ক ড্রপ করে
+                let localCount = localStorage.getItem('backup_views') || 0;
+                localCount = parseInt(localCount) + 1;
+                localStorage.setItem('backup_views', localCount);
+                document.getElementById('global-counter').innerText = localCount.toString().padStart(5, '0');
             });
     </script>
 
