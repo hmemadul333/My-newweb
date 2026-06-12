@@ -64,6 +64,7 @@
         .football-card { border-left-color: #FFC107; }
         .freefire-card { border-left-color: #ff4500; }
         .anime-card { border-left-color: #00BCD4; }
+        .video-card { border-left-color: #9C27B0; }
 
         h2 {
             margin-top: 0;
@@ -78,6 +79,16 @@
             line-height: 1.6;
             color: #555;
             margin-bottom: 0;
+        }
+
+        /* 🎥 ভিডিও প্লেয়ারের আকর্ষণীয় ডিজাইন */
+        video {
+            display: block;
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            background-color: #000;
         }
 
         /* Global Visitor Counter Styling */
@@ -147,6 +158,16 @@
             <p>I love watching amazing series like Dr. Stone, Rent-a-Girlfriend, Masamune-kun's Revenge, Blue Lock, and Classroom of the Elite! Each of them has unique stories and incredible moments.</p>
         </div>
 
+        <div class="section-title">My Video Zone 🎬🍿</div>
+
+        <div class="card video-card">
+            <h2 style="color: #9C27B0;">Muzan Kibutsuji - Demon Slayer Edit ⚔️🔥</h2>
+            <video controls>
+                <source src="muzan-edit.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
         <div class="counter-section">
             <div class="counter-title">🌐 Total Real Page Views</div>
             <div class="counter-number" id="global-counter">Loading...</div>
@@ -155,24 +176,17 @@
     </div>
 
     <script>
-        // প্রথমে চেক করছি এই ব্রাউজারে আগে থেকেই চাবি সেভ আছে কি না
         if (!localStorage.getItem('has_visited_notebook')) {
-            
-            // যদি চাবি না থাকে, তার মানে সে একদম নতুন ভিউয়ার! ভিউ ১ বাড়িয়ে নিচ্ছি (up)
             fetch('https://api.counterapi.dev/v1/hmemadul333/my-notebook/up')
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('global-counter').innerText = data.value.toString().padStart(5, '0');
-                    // ব্রাউজারে চাবিটি সেট করে রাখছি যাতে পরেরবার রিফ্রেশ করলে আর ভিউ না বাড়ে
                     localStorage.setItem('has_visited_notebook', 'true');
                 })
                 .catch(error => {
                     document.getElementById('global-counter').innerText = "00001";
                 });
-                
         } else {
-            
-            // যদি সে অলরেডি এসে থাকে (রিফ্রেশ মারে), তবে ভিউ না বাড়িয়ে শুধু বর্তমান ভিউ সংখ্যাটি এনে দেখাবে (get)
             fetch('https://api.counterapi.dev/v1/hmemadul333/my-notebook/get')
                 .then(response => response.json())
                 .then(data => {
