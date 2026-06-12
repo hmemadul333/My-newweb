@@ -155,21 +155,33 @@
     </div>
 
     <script>
-        // একটি নির্ভরযোগ্য গ্লোবাল কাউন্টার এপিআই (api.counterapi.dev) ব্যবহার করা হয়েছে
-        // আপনার ইউজারনেম এবং ওয়েবসাইটের নাম দিয়ে এটি ডেটাবেজে সেভ থাকবে
-        fetch('https://api.counterapi.dev/v1/hmemadul333/my-notebook/up')
-            .then(response => response.json())
-            .then(data => {
-                // সংখ্যাটিকে সুন্দর ৫ ডিজিটের ফরম্যাটে দেখাবে
-                document.getElementById('global-counter').innerText = data.value.toString().padStart(5, '0');
-            })
-            .catch(error => {
-                // ব্যাকআপ ট্র্যাকিং যদি কোনো কারণে নেটওয়ার্ক ড্রপ করে
-                let localCount = localStorage.getItem('backup_views') || 0;
-                localCount = parseInt(localCount) + 1;
-                localStorage.setItem('backup_views', localCount);
-                document.getElementById('global-counter').innerText = localCount.toString().padStart(5, '0');
-            });
+        // প্রথমে চেক করছি এই ব্রাউজারে আগে থেকেই চাবি সেভ আছে কি না
+        if (!localStorage.getItem('has_visited_notebook')) {
+            
+            // যদি চাবি না থাকে, তার মানে সে একদম নতুন ভিউয়ার! ভিউ ১ বাড়িয়ে নিচ্ছি (up)
+            fetch('https://api.counterapi.dev/v1/hmemadul333/my-notebook/up')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('global-counter').innerText = data.value.toString().padStart(5, '0');
+                    // ব্রাউজারে চাবিটি সেট করে রাখছি যাতে পরেরবার রিফ্রেশ করলে আর ভিউ না বাড়ে
+                    localStorage.setItem('has_visited_notebook', 'true');
+                })
+                .catch(error => {
+                    document.getElementById('global-counter').innerText = "00001";
+                });
+                
+        } else {
+            
+            // যদি সে অলরেডি এসে থাকে (রিফ্রেশ মারে), তবে ভিউ না বাড়িয়ে শুধু বর্তমান ভিউ সংখ্যাটি এনে দেখাবে (get)
+            fetch('https://api.counterapi.dev/v1/hmemadul333/my-notebook/get')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('global-counter').innerText = data.value.toString().padStart(5, '0');
+                })
+                .catch(error => {
+                    document.getElementById('global-counter').innerText = "00001";
+                });
+        }
     </script>
 
 </body>
