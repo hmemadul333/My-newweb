@@ -31,6 +31,7 @@
         .btn { background: #38bdf8; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; color: #000; font-weight: bold; margin: 5px; text-decoration: none; display: inline-block; font-size: 0.85rem;}
         video { width: 100%; border-radius: 10px; margin-top: 10px; background: #000; }
         .details { color: #cbd5e1; margin: 10px 0; font-size: 0.95rem; }
+        .video-box { margin-bottom: 30px; border-bottom: 1px solid #334155; padding-bottom: 20px; }
     </style>
 </head>
 <body>
@@ -77,25 +78,36 @@
 
     <div class="card">
         <h3>Anime & Video Gallery</h3>
-        <p class="details">Anime is a style of Japanese animation that features vibrant characters and imaginative storylines, ranging from action-packed battles to emotional life stories.</p>
-        
-        <p><strong>Jinwoo Edit:</strong> The ultimate power of Sung Jinwoo from Solo Leveling.</p>
-        <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/jinwoo-edit.mp4" type="video/mp4"></video>
-        <br><br>
-        
-        <p><strong>Muzan Edit:</strong> The terrifying dominance of Kibutsuji Muzan from Demon Slayer.</p>
-        <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/muzan-edit.mp4" type="video/mp4"></video>
-        <br><br>
-        
-        <p><strong>Suzume Song:</strong> A serene and emotional musical masterpiece from the movie Suzume.</p>
-        <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/suzume-song.mp4" type="video/mp4"></video>
-        <br><br>
-        
-        <button class="btn" onclick="updateCount('v1')">Like <span id="v1">0</span></button>
-        <button class="btn" onclick="navigator.share({url: window.location.href})">Share</button>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
+        <p class="details">Anime is a style of Japanese animation that features vibrant characters and imaginative storylines.</p>
+
+        <div class="video-box">
+            <p><strong>Jinwoo Edit:</strong> The ultimate power of Sung Jinwoo from Solo Leveling.</p>
+            <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/jinwoo-edit.mp4" type="video/mp4"></video>
+            <br><br>
+            <button class="btn" onclick="updateCount('v1')">Like <span id="v1">0</span></button>
+            <button class="btn" onclick="navigator.share({title: 'Jinwoo Edit', url: window.location.href})">Share</button>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
+        </div>
+
+        <div class="video-box">
+            <p><strong>Muzan Edit:</strong> The terrifying dominance of Kibutsuji Muzan from Demon Slayer.</p>
+            <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/muzan-edit.mp4" type="video/mp4"></video>
+            <br><br>
+            <button class="btn" onclick="updateCount('v2')">Like <span id="v2">0</span></button>
+            <button class="btn" onclick="navigator.share({title: 'Muzan Edit', url: window.location.href})">Share</button>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
+        </div>
+
+        <div class="video-box">
+            <p><strong>Suzume Song:</strong> A serene and emotional musical masterpiece from the movie Suzume.</p>
+            <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/suzume-song.mp4" type="video/mp4"></video>
+            <br><br>
+            <button class="btn" onclick="updateCount('v3')">Like <span id="v3">0</span></button>
+            <button class="btn" onclick="navigator.share({title: 'Suzume Song', url: window.location.href})">Share</button>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
+        </div>
     </div>
 </div>
 
 </body>
-               </html>
+                                                                                           </html>
