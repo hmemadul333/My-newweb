@@ -45,10 +45,10 @@
     <div id="google_translate_element" style="margin-bottom: 20px;"></div>
 
     <script>
-        // নতুন লাইক সিস্টেম (গুগল শিট কানেক্টেড)
         const scriptUrl = "https://script.google.com/macros/s/AKfycbzqDRN0gCElKd_6eFB8swmyZf7a8wCXzFi4FYRN3qjO9JV144-ECoFbW42nfyk93cRX/exec";
 
         function addLike(id) {
+            alert("Processing your like...");
             fetch(scriptUrl + "?id=" + id)
                 .then(() => {
                     alert("Liked successfully!");
@@ -60,7 +60,7 @@
 
     <div class="card">
         <h3>Cricket</h3>
-        <p class="details">Cricket is a strategic bat-and-ball sport...</p>
+        <p class="details">Cricket is a strategic bat-and-ball sport played between two teams. It is a game of patience, skill, and endurance, deeply loved in Bangladesh.</p>
         <button class="btn" onclick="addLike('l1')">Like</button>
         <button class="btn" onclick="navigator.share({title: 'Cricket', url: window.location.href})">Share</button>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
@@ -68,7 +68,7 @@
 
     <div class="card">
         <h3>Football</h3>
-        <p class="details">Football is the world's most popular sport...</p>
+        <p class="details">Football is the world's most popular sport. It connects people across cultures, where 22 players chase glory on the pitch.</p>
         <button class="btn" onclick="addLike('l2')">Like</button>
         <button class="btn" onclick="navigator.share({title: 'Football', url: window.location.href})">Share</button>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
@@ -76,7 +76,7 @@
 
     <div class="card">
         <h3>Free Fire</h3>
-        <p class="details">Garena Free Fire is an intense battle royale game...</p>
+        <p class="details">Garena Free Fire is an intense battle royale game where 50 players compete in a shrinking zone. It requires quick thinking and survival skills.</p>
         <button class="btn" onclick="addLike('l3')">Like</button>
         <button class="btn" onclick="navigator.share({title: 'Free Fire', url: window.location.href})">Share</button>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
@@ -84,7 +84,7 @@
 
     <div class="card">
         <h3>Anime & Video Gallery</h3>
-        <p class="details">Anime is a style of Japanese animation...</p>
+        <p class="details">Anime is a style of Japanese animation that features vibrant characters and imaginative storylines.</p>
 
         <div class="video-box">
             <p><strong>Jinwoo Edit:</strong></p>
@@ -92,6 +92,7 @@
             <br><br>
             <button class="btn" onclick="addLike('v1')">Like</button>
             <button class="btn" onclick="navigator.share({title: 'Jinwoo Edit', url: window.location.href})">Share</button>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
         </div>
 
         <div class="video-box">
@@ -100,6 +101,7 @@
             <br><br>
             <button class="btn" onclick="addLike('v2')">Like</button>
             <button class="btn" onclick="navigator.share({title: 'Muzan Edit', url: window.location.href})">Share</button>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
         </div>
 
         <div class="video-box">
@@ -108,9 +110,10 @@
             <br><br>
             <button class="btn" onclick="addLike('v3')">Like</button>
             <button class="btn" onclick="navigator.share({title: 'Suzume Song', url: window.location.href})">Share</button>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
         </div>
     </div>
 </div>
 
 </body>
-    </html>
+</html>
