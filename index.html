@@ -19,50 +19,73 @@
         body { background-color: #0f172a; color: #fff; font-family: sans-serif; padding: 20px; }
         .container { max-width: 600px; margin: 0 auto; }
         .card { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; margin-bottom: 20px; }
-        .btn { background: #38bdf8; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; color: black; font-weight: bold; margin: 5px; font-size: 0.8rem; }
+        .btn { background: #38bdf8; border: none; padding: 10px; border-radius: 5px; cursor: pointer; color: black; font-weight: bold; margin: 5px; }
         video { width: 100%; border-radius: 10px; margin-top: 10px; background: #000; }
-        .action-bar { margin-top: 10px; display: flex; gap: 5px; }
+        .details { color: #cbd5e1; margin: 10px 0; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div style="text-align: center; margin-bottom: 20px;">
-        <a href="https://translate.google.com/translate?sl=en&tl=bn&u=https://hmemadul333.github.io/My-newweb/" class="btn" style="padding: 10px 20px;">Translate to Bangla</a>
+        <a href="https://translate.google.com/translate?sl=en&tl=bn&u=https://hmemadul333.github.io/My-newweb/" class="btn">Translate to Bangla</a>
     </div>
 
     <h1>My Digital Notebook</h1>
 
     <div class="card">
         <h3>Cricket</h3>
-        <p>Cricket is my favorite sport. I love cricket very much and I play it occasionally with my friends.</p>
-        <div class="action-bar">
-            <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
-            <button class="btn" onclick="prompt('Write your comment:')">Comment</button>
-            <button class="btn" onclick="navigator.share({title: 'Cricket', url: window.location.href})">Share</button>
-        </div>
+        <p class="details">Cricket is my favorite sport. It teaches teamwork and patience. I enjoy playing it with friends to keep my body and mind active.</p>
+        <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
+        <button class="btn" onclick="prompt('Comment on Cricket:')">Comment</button>
+        <button class="btn" onclick="navigator.share({title: 'Cricket', url: window.location.href})">Share</button>
+    </div>
+
+    <div class="card">
+        <h3>Football</h3>
+        <p class="details">Football is a very popular game worldwide. The energy and speed of this game make it exciting for me to watch and play.</p>
+        <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
+        <button class="btn" onclick="prompt('Comment on Football:')">Comment</button>
+        <button class="btn" onclick="navigator.share({title: 'Football', url: window.location.href})">Share</button>
+    </div>
+
+    <div class="card">
+        <h3>Free Fire</h3>
+        <p class="details">Free Fire is my favorite mobile game. It is a thrilling survival game where strategy and quick reflexes are key to victory.</p>
+        <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
+        <button class="btn" onclick="prompt('Comment on Free Fire:')">Comment</button>
+        <button class="btn" onclick="navigator.share({title: 'Free Fire', url: window.location.href})">Share</button>
+    </div>
+
+    <div class="card">
+        <h3>Anime</h3>
+        <p class="details">Anime is my escape into different worlds. I love the storytelling, art style, and emotional depth behind every great anime series.</p>
+        <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
+        <button class="btn" onclick="prompt('Comment on Anime:')">Comment</button>
+        <button class="btn" onclick="navigator.share({title: 'Anime', url: window.location.href})">Share</button>
     </div>
 
     <div class="card">
         <h3>Video Gallery</h3>
-        
         <p>Jinwoo Edit</p>
         <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/jinwoo-edit.mp4" type="video/mp4"></video>
-        <div class="action-bar">
-            <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
-            <button class="btn" onclick="prompt('Comment on Jinwoo Edit:')">Comment</button>
-            <button class="btn" onclick="navigator.share({title: 'Jinwoo Edit', url: window.location.href})">Share</button>
-        </div>
+        <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
+        <button class="btn" onclick="prompt('Comment:')">Comment</button>
+        <button class="btn" onclick="navigator.share({url: window.location.href})">Share</button>
 
         <p style="margin-top:20px;">Muzan Edit</p>
         <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/muzan-edit.mp4" type="video/mp4"></video>
-        <div class="action-bar">
-            <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
-            <button class="btn" onclick="prompt('Comment on Muzan Edit:')">Comment</button>
-            <button class="btn" onclick="navigator.share({title: 'Muzan Edit', url: window.location.href})">Share</button>
-        </div>
+        <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
+        <button class="btn" onclick="prompt('Comment:')">Comment</button>
+        <button class="btn" onclick="navigator.share({url: window.location.href})">Share</button>
+
+        <p style="margin-top:20px;">Suzume Song</p>
+        <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/suzume-song.mp4" type="video/mp4"></video>
+        <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
+        <button class="btn" onclick="prompt('Comment:')">Comment</button>
+        <button class="btn" onclick="navigator.share({url: window.location.href})">Share</button>
     </div>
 </div>
 
 </body>
-</html>
+    </html>
