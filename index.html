@@ -46,15 +46,20 @@
 
     <script>
         function updateCount(elementId) {
+            if(localStorage.getItem('liked_' + elementId)) {
+                alert("You already liked this!");
+                return;
+            }
             let el = document.getElementById(elementId);
             let count = parseInt(el.innerText) || 0;
             el.innerText = count + 1;
+            localStorage.setItem('liked_' + elementId, 'true');
         }
     </script>
 
     <div class="card">
         <h3>Cricket</h3>
-        <p class="details">Cricket is a strategic bat-and-ball sport played between two teams. It is a game of patience, skill, and endurance, deeply loved in Bangladesh.</p>
+        <p class="details">Cricket is a strategic bat-and-ball sport played between two teams. It is a game of patience, skill, and endurance, deeply loved in Bangladesh. It requires teamwork, intense focus, and physical fitness to excel in both batting and bowling.</p>
         <button class="btn" onclick="updateCount('l1')">Like <span id="l1">0</span></button>
         <button class="btn" onclick="navigator.share({title: 'Cricket', url: window.location.href})">Share</button>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
@@ -62,7 +67,7 @@
 
     <div class="card">
         <h3>Football</h3>
-        <p class="details">Football is the world's most popular sport. It connects people across cultures, where 22 players chase glory on the pitch with passion and tactical brilliance.</p>
+        <p class="details">Football is the world's most popular sport. It connects people across cultures, where 22 players chase glory on the pitch. It demands immense stamina, tactical brilliance, and the ability to work under high pressure in front of thousands of fans.</p>
         <button class="btn" onclick="updateCount('l2')">Like <span id="l2">0</span></button>
         <button class="btn" onclick="navigator.share({title: 'Football', url: window.location.href})">Share</button>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
@@ -70,7 +75,7 @@
 
     <div class="card">
         <h3>Free Fire</h3>
-        <p class="details">Garena Free Fire is an intense battle royale game where 50 players compete in a shrinking zone. It requires quick thinking, survival skills, and accurate aiming.</p>
+        <p class="details">Garena Free Fire is an intense battle royale game where 50 players compete in a shrinking zone. It requires quick thinking, survival skills, and accurate aiming to be the last survivor. The game is highly popular for its fast-paced action and competitive gameplay.</p>
         <button class="btn" onclick="updateCount('l3')">Like <span id="l3">0</span></button>
         <button class="btn" onclick="navigator.share({title: 'Free Fire', url: window.location.href})">Share</button>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
@@ -78,7 +83,7 @@
 
     <div class="card">
         <h3>Anime & Video Gallery</h3>
-        <p class="details">Anime is a style of Japanese animation that features vibrant characters and imaginative storylines.</p>
+        <p class="details">Anime is a style of Japanese animation that features vibrant characters and imaginative storylines, ranging from action-packed battles to deep emotional life stories.</p>
 
         <div class="video-box">
             <p><strong>Jinwoo Edit:</strong> The ultimate power of Sung Jinwoo from Solo Leveling.</p>
@@ -110,4 +115,4 @@
 </div>
 
 </body>
-                                                                                           </html>
+                                </html>
