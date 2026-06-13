@@ -6,68 +6,47 @@
     <title>My Digital Notebook</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-    <script>
-        window.OneSignal = window.OneSignal || [];
-        OneSignal.push(function() { OneSignal.init({ appId: "d67610a1-181e-42cd-a2d2-837d92d2bb16" }); });
-    </script>
     <style>
         :root { --bg: #0f172a; --card: rgba(255, 255, 255, 0.08); --accent: #38bdf8; }
         body { background-color: var(--bg); font-family: 'Poppins', sans-serif; color: #fff; margin: 0; padding: 20px; }
         .container { max-width: 600px; margin: 0 auto; }
-        .header { text-align: center; padding: 30px; background: rgba(255,255,255,0.05); border-radius: 20px; margin-bottom: 25px; }
         .card { background: var(--card); padding: 20px; border-radius: 20px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); }
-        .btn-action { background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 8px 12px; border-radius: 8px; cursor: pointer; margin-right: 5px; font-size: 0.85em; }
-        .btn-action:hover { background: var(--accent); color: #000; }
-        .comment-box { display: none; margin-top: 10px; }
-        .comment-box input { background: #1e293b; border: 1px solid #444; color: white; padding: 5px; width: 60%; border-radius: 5px; }
+        .btn { background: var(--accent); color: #000; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; margin: 5px 2px; display: inline-block; text-decoration: none; font-size: 0.9em; }
         video { width: 100%; border-radius: 15px; margin-top: 10px; background: #000; }
-        .trans-btn { background: var(--accent); color: #000; padding: 8px 15px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 0.9em; }
+        .comment-box { display: none; margin-top: 10px; }
+        input { background: #1e293b; border: 1px solid #444; color: white; padding: 8px; width: 60%; border-radius: 5px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div style="text-align: right; margin-bottom: 20px;">
-        <a href="https://translate.google.com/translate?sl=en&tl=bn&u=YOUR_SITE_URL" class="trans-btn">Translate</a>
-    </div>
+    <a href="https://translate.google.com/translate?sl=en&tl=bn&u=https://hmemadul333.github.io/My-newweb/" class="btn">Translate</a>
+    <button class="btn" onclick="alert('Subscribe system is ready!')">Subscribe</button>
 
-    <header class="header"><h1>Welcome to my digital notebook</h1></header>
+    <h1>My Digital Notebook</h1>
 
-    <button class="btn-action" style="width:100%; padding:15px; margin-bottom:20px;" onclick="OneSignal.showNativePrompt();">Subscribe for Updates</button>
-
-    <div class="card"><h3>Cricket</h3><p>Cricket is my favorite sport. I love cricket very much and I play it occasionally with my friends.</p>
-        <button class="btn-action" onclick="this.innerHTML='Liked'">Like</button><button class="btn-action" onclick="toggleC(this)">Comment</button><button class="btn-action" onclick="share()">Share</button>
+    <div class="card"><h3>Cricket</h3><p>Cricket is my favorite sport.</p>
+        <button class="btn" onclick="this.innerHTML='Liked'">Like</button>
+        <button class="btn" onclick="toggleC(this)">Comment</button>
         <div class="comment-box"><input type="text"><button onclick="addC(this)">Post</button><ul></ul></div>
     </div>
 
-    <div class="card"><h3>Football</h3><p>I also like football very much. Football is a very popular game, and I play football occasionally.</p>
-        <button class="btn-action" onclick="this.innerHTML='Liked'">Like</button><button class="btn-action" onclick="toggleC(this)">Comment</button><button class="btn-action" onclick="share()">Share</button>
-        <div class="comment-box"><input type="text"><button onclick="addC(this)">Post</button><ul></ul></div>
-    </div>
-
-    <div class="card"><h3>Free Fire</h3><p>My favorite game is Free Fire. I play it during my leisure time, and it helps me keep my mindset sharp.</p>
-        <button class="btn-action" onclick="this.innerHTML='Liked'">Like</button><button class="btn-action" onclick="toggleC(this)">Comment</button><button class="btn-action" onclick="share()">Share</button>
-        <div class="comment-box"><input type="text"><button onclick="addC(this)">Post</button><ul></ul></div>
-    </div>
-
-    <div class="card"><h3>Anime</h3><p>I have been watching anime for three years. I have already watched over 200 anime series. I always wait eagerly for new anime releases.</p>
-        <button class="btn-action" onclick="this.innerHTML='Liked'">Like</button><button class="btn-action" onclick="toggleC(this)">Comment</button><button class="btn-action" onclick="share()">Share</button>
+    <div class="card"><h3>Football</h3><p>Football is a very popular game.</p>
+        <button class="btn" onclick="this.innerHTML='Liked'">Like</button>
+        <button class="btn" onclick="toggleC(this)">Comment</button>
         <div class="comment-box"><input type="text"><button onclick="addC(this)">Post</button><ul></ul></div>
     </div>
 
     <div class="card"><h3>Video Gallery</h3>
-        <video controls><source src="11316.mp4" type="video/mp4"></video>
-        <video controls><source src="11105.mp4" type="video/mp4"></video>
-        <video controls><source src="11382.mp4" type="video/mp4"></video>
+        <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/11316.mp4" type="video/mp4"></video>
+        <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/11105.mp4" type="video/mp4"></video>
+        <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/11382.mp4" type="video/mp4"></video>
     </div>
 </div>
 
 <script>
     function toggleC(b) { let s = b.parentElement.querySelector('.comment-box'); s.style.display = (s.style.display === 'block') ? 'none' : 'block'; }
     function addC(b) { let ul = b.nextElementSibling; let li = document.createElement('li'); li.innerText = b.previousElementSibling.value; ul.appendChild(li); b.previousElementSibling.value = ''; }
-    function share() { if(navigator.share) navigator.share({title: 'My Notebook', url: window.location.href}); else alert('Link copied!'); }
 </script>
-
 </body>
 </html>
