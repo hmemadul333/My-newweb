@@ -41,69 +41,39 @@
 <body>
 
 <div class="container">
-    <div style="text-align: center; margin-bottom: 20px;">
-        <a href="https://translate.google.com/translate?sl=en&tl=bn&u=https://hmemadul333.github.io/My-newweb/" class="btn">Translate to Bangla</a>
-    </div>
-
     <h1>My Digital Notebook</h1>
+
+    <script>
+        function updateCount(elementId) {
+            let el = document.getElementById(elementId);
+            let count = parseInt(el.innerText) || 0;
+            el.innerText = count + 1;
+        }
+    </script>
 
     <div class="card">
         <h3>Cricket</h3>
-        <p class="details">Cricket is my favorite sport. It teaches teamwork and patience. I enjoy playing it with friends to keep my body and mind active.</p>
-        <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
-        <button class="btn" onclick="prompt('Comment on Cricket:')">Comment</button>
-        <button class="btn" onclick="navigator.share({title: 'Cricket', url: window.location.href})">Share</button>
+        <p class="details">Cricket is my favorite sport.</p>
+        <button class="btn" onclick="updateCount('like1')">Like <span id="like1">0</span></button>
+        <button class="btn" onclick="updateCount('share1'); navigator.share({title: 'Cricket', url: window.location.href})">Share <span id="share1">0</span></button>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
     </div>
 
     <div class="card">
         <h3>Football</h3>
-        <p class="details">Football is a very popular game worldwide. The energy and speed of this game make it exciting for me to watch and play.</p>
-        <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
-        <button class="btn" onclick="prompt('Comment on Football:')">Comment</button>
-        <button class="btn" onclick="navigator.share({title: 'Football', url: window.location.href})">Share</button>
-    </div>
-
-    <div class="card">
-        <h3>Free Fire</h3>
-        <p class="details">Free Fire is my favorite mobile game. It is a thrilling survival game where strategy and quick reflexes are key to victory.</p>
-        <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
-        <button class="btn" onclick="prompt('Comment on Free Fire:')">Comment</button>
-        <button class="btn" onclick="navigator.share({title: 'Free Fire', url: window.location.href})">Share</button>
-    </div>
-
-    <div class="card">
-        <h3>Anime</h3>
-        <p class="details">Anime is my escape into different worlds. I love the storytelling, art style, and emotional depth behind every great anime series.</p>
-        <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
-        <button class="btn" onclick="prompt('Comment on Anime:')">Comment</button>
-        <button class="btn" onclick="navigator.share({title: 'Anime', url: window.location.href})">Share</button>
+        <p class="details">Football is a very popular game.</p>
+        <button class="btn" onclick="updateCount('like2')">Like <span id="like2">0</span></button>
+        <button class="btn" onclick="updateCount('share2'); navigator.share({title: 'Football', url: window.location.href})">Share <span id="share2">0</span></button>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
     </div>
 
     <div class="card">
         <h3>Video Gallery</h3>
         <p>Jinwoo Edit</p>
         <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/jinwoo-edit.mp4" type="video/mp4"></video>
-        <div style="margin-top:10px;">
-            <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
-            <button class="btn" onclick="prompt('Comment:')">Comment</button>
-            <button class="btn" onclick="navigator.share({url: window.location.href})">Share</button>
-        </div>
-
-        <p style="margin-top:20px;">Muzan Edit</p>
-        <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/muzan-edit.mp4" type="video/mp4"></video>
-        <div style="margin-top:10px;">
-            <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
-            <button class="btn" onclick="prompt('Comment:')">Comment</button>
-            <button class="btn" onclick="navigator.share({url: window.location.href})">Share</button>
-        </div>
-
-        <p style="margin-top:20px;">Suzume Song</p>
-        <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/suzume-song.mp4" type="video/mp4"></video>
-        <div style="margin-top:10px;">
-            <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
-            <button class="btn" onclick="prompt('Comment:')">Comment</button>
-            <button class="btn" onclick="navigator.share({url: window.location.href})">Share</button>
-        </div>
+        <br>
+        <button class="btn" onclick="updateCount('v1')">Like <span id="v1">0</span></button>
+        <button class="btn" onclick="updateCount('s1'); navigator.share({url: window.location.href})">Share <span id="s1">0</span></button>
     </div>
 </div>
 
