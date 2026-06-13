@@ -3,138 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Digital Notebook</title>
+    <title>My Digital Notebook | Modern</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
     <script>
         window.OneSignal = window.OneSignal || [];
-        OneSignal.push(function() {
-            OneSignal.init({
-                appId: "d67610a1-181e-42cd-a2d2-837d92d2bb16",
-            });
-        });
+        OneSignal.push(function() { OneSignal.init({ appId: "d67610a1-181e-42cd-a2d2-837d92d2bb16" }); });
     </script>
-
     <style>
-        /* CSS স্টাইল - সম্পূর্ণ ডিজাইন কোড */
-        body { background-color: #f4f7f6; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; color: #333; }
+        :root { --bg: #0f172a; --card: rgba(255, 255, 255, 0.05); --text: #f8fafc; --accent: #38bdf8; }
+        body { background-color: var(--bg); font-family: 'Poppins', sans-serif; color: var(--text); margin: 0; padding: 20px; }
         .container { max-width: 600px; margin: 0 auto; }
-        .header-card { background: #fff; padding: 25px; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 30px; }
-        .post-card { background: #fff; padding: 20px; border-radius: 20px; margin-bottom: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 6px solid #2196F3; }
-        .btn-main { background: #ff4500; color: white; padding: 12px 25px; border-radius: 30px; border: none; cursor: pointer; font-weight: bold; width: 100%; margin-top: 15px; }
-        .actions { display: flex; justify-content: space-between; margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px; }
-        .action-btn { background: none; border: none; cursor: pointer; color: #555; font-size: 15px; }
-        .action-btn:hover { color: #2196F3; }
-        .comment-section { display: none; margin-top: 15px; padding: 10px; background: #f9f9f9; border-radius: 10px; }
-        .comment-input { width: 70%; padding: 8px; border: 1px solid #ddd; border-radius: 5px; }
-        .video-box { width: 100%; border-radius: 15px; margin-top: 15px; background: #000; }
-        .translate-box { text-align: right; margin-bottom: 20px; }
-        .view-counter { text-align: center; font-weight: bold; color: #555; padding: 20px; border-top: 2px solid #ddd; margin-top: 40px; }
+        
+        /* Header Style */
+        .header { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, #1e293b, #334155); border-radius: 30px; margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.1); }
+        .header h1 { margin: 0; font-size: 1.8rem; letter-spacing: 1px; }
+        
+        /* Cards */
+        .card { background: var(--card); backdrop-filter: blur(10px); padding: 25px; border-radius: 20px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        
+        /* Buttons */
+        .btn-action { background: transparent; border: 1px solid var(--accent); color: var(--accent); padding: 8px 16px; border-radius: 10px; cursor: pointer; transition: 0.3s; margin-right: 5px; }
+        .btn-action:hover { background: var(--accent); color: #000; }
+        .sub-btn { background: var(--accent); color: #000; border: none; padding: 15px 30px; border-radius: 50px; font-weight: 600; cursor: pointer; width: 100%; margin-bottom: 25px; }
+        
+        /* Others */
+        video { width: 100%; border-radius: 15px; margin-top: 10px; }
+        .comment-box { display: none; margin-top: 15px; }
+        input { background: #1e293b; border: none; padding: 10px; border-radius: 8px; color: white; width: 70%; }
+        .top-nav { display: flex; justify-content: flex-end; margin-bottom: 20px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="translate-box"><div id="google_translate_element"></div></div>
+    <div class="top-nav"><div id="google_translate_element"></div></div>
+    
+    <header class="header">
+        <h1>Welcome to my digital notebook</h1>
+    </header>
 
-    <div class="header-card">
-        <h1>My Digital Notebook 📒</h1>
-        <p>Stay connected for my daily updates!</p>
-        <button class="btn-main" onclick="OneSignal.push(function() { OneSignal.showNativePrompt(); });">
-            🔔 Subscribe for Notifications
-        </button>
+    <button class="sub-btn" onclick="OneSignal.push(function() { OneSignal.showNativePrompt(); });">
+        <i class="fa-solid fa-bell"></i> Subscribe for Updates
+    </button>
+
+    <div class="card">
+        <h3><i class="fa-solid fa-cricket-bat-ball"></i> Cricket</h3>
+        <p>Cricket is my favorite sport. I love cricket very much and I play it occasionally with my friends.</p>
+        <button class="btn-action" onclick="this.style.background='red';this.style.color='white'">Like</button>
+        <button class="btn-action" onclick="toggleC(this)">Comment</button>
+        <div class="comment-box"><input type="text"><button onclick="addC(this)">Send</button><ul></ul></div>
     </div>
 
-    <div class="post-card">
-        <h3>Cricket 🏏</h3>
-        <p>Cricket is my favourite sport. The thrill of hitting a six is unmatched!</p>
-        <div class="actions">
-            <button class="action-btn" onclick="this.style.color='red'"><i class="fa-solid fa-heart"></i> Like</button>
-            <button class="action-btn" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
-            <button class="action-btn" onclick="sharePost()"><i class="fa-solid fa-share-nodes"></i> Share</button>
-        </div>
-        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
+    <div class="card">
+        <h3><i class="fa-solid fa-futbol"></i> Football</h3>
+        <p>I also like football very much. Football is a very popular game, and I play football occasionally.</p>
+        <button class="btn-action" onclick="this.style.background='red';this.style.color='white'">Like</button>
+        <button class="btn-action" onclick="toggleC(this)">Comment</button>
+        <div class="comment-box"><input type="text"><button onclick="addC(this)">Send</button><ul></ul></div>
     </div>
 
-    <div class="post-card">
-        <h3>Football ⚽</h3>
-        <p>Nothing beats the excitement of a high-stakes football match.</p>
-        <div class="actions">
-            <button class="action-btn" onclick="this.style.color='red'"><i class="fa-solid fa-heart"></i> Like</button>
-            <button class="action-btn" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
-            <button class="action-btn" onclick="sharePost()"><i class="fa-solid fa-share-nodes"></i> Share</button>
-        </div>
-        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
+    <div class="card">
+        <h3><i class="fa-solid fa-gamepad"></i> Free Fire</h3>
+        <p>My favorite game is Free Fire. I play it during my leisure time, and it helps me keep my mindset sharp.</p>
+        <button class="btn-action" onclick="this.style.background='red';this.style.color='white'">Like</button>
+        <button class="btn-action" onclick="toggleC(this)">Comment</button>
+        <div class="comment-box"><input type="text"><button onclick="addC(this)">Send</button><ul></ul></div>
     </div>
 
-    <div class="post-card">
-        <h3>Free Fire 🎯</h3>
-        <p>Clutching in Free Fire is the best way to spend my leisure time.</p>
-        <div class="actions">
-            <button class="action-btn" onclick="this.style.color='red'"><i class="fa-solid fa-heart"></i> Like</button>
-            <button class="action-btn" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
-            <button class="action-btn" onclick="sharePost()"><i class="fa-solid fa-share-nodes"></i> Share</button>
-        </div>
-        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
+    <div class="card">
+        <h3><i class="fa-solid fa-masks-theater"></i> Anime</h3>
+        <p>I have been watching anime for three years (200+ series). I am always excited for new releases!</p>
+        <button class="btn-action" onclick="this.style.background='red';this.style.color='white'">Like</button>
+        <button class="btn-action" onclick="toggleC(this)">Comment</button>
+        <div class="comment-box"><input type="text"><button onclick="addC(this)">Send</button><ul></ul></div>
     </div>
 
-    <div class="post-card">
-        <h3>Anime Collection 🌸</h3>
-        <p>I am a huge anime fan. My journey started with Naruto!</p>
-        <div class="actions">
-            <button class="action-btn" onclick="this.style.color='red'"><i class="fa-solid fa-heart"></i> Like</button>
-            <button class="action-btn" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
-            <button class="action-btn" onclick="sharePost()"><i class="fa-solid fa-share-nodes"></i> Share</button>
-        </div>
-        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
-    </div>
-
-    <div class="post-card">
-        <h3>Suzume Song 🌌</h3>
-        <video class="video-box" controls><source src="suzume-song.mp4" type="video/mp4"></video>
-        <div class="actions">
-            <button class="action-btn" onclick="this.style.color='red'"><i class="fa-solid fa-heart"></i> Like</button>
-            <button class="action-btn" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
-            <button class="action-btn" onclick="sharePost()"><i class="fa-solid fa-share-nodes"></i> Share</button>
-        </div>
-        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
-    </div>
-
-    <div class="post-card">
-        <h3>Solo Leveling Edit ⚡</h3>
-        <video class="video-box" controls><source src="jinwoo-edit.mp4" type="video/mp4"></video>
-        <div class="actions">
-            <button class="action-btn" onclick="this.style.color='red'"><i class="fa-solid fa-heart"></i> Like</button>
-            <button class="action-btn" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
-            <button class="action-btn" onclick="sharePost()"><i class="fa-solid fa-share-nodes"></i> Share</button>
-        </div>
-        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
-    </div>
-
-    <div class="post-card">
-        <h3>Muzan Edit ⚔️</h3>
-        <video class="video-box" controls><source src="muzan-edit.mp4" type="video/mp4"></video>
-        <div class="actions">
-            <button class="action-btn" onclick="this.style.color='red'"><i class="fa-solid fa-heart"></i> Like</button>
-            <button class="action-btn" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
-            <button class="action-btn" onclick="sharePost()"><i class="fa-solid fa-share-nodes"></i> Share</button>
-        </div>
-        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
-    </div>
-
-    <div class="view-counter">
-        <i class="fa-solid fa-eye"></i> TOTAL PAGE VIEWS: <span id="counter">Loading...</span>
+    <div class="card"><h3>Video Gallery</h3>
+        <video controls><source src="11316.mp4" type="video/mp4"></video>
+        <video controls><source src="11105.mp4" type="video/mp4"></video>
+        <video controls><source src="11382.mp4" type="video/mp4"></video>
     </div>
 </div>
 
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script>
     function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element'); }
-    function toggleComments(btn) { let sec = btn.closest('.post-card').querySelector('.comment-section'); sec.style.display = (sec.style.display === 'block') ? 'none' : 'block'; }
-    function addComment(btn) { let input = btn.previousElementSibling; let list = btn.nextElementSibling.nextElementSibling; let li = document.createElement('li'); li.innerText = input.value; list.appendChild(li); input.value = ''; }
-    function sharePost() { if (navigator.share) navigator.share({url: window.location.href}); else alert('Link copied!'); }
-    fetch('https://api.counterapi.dev/v1/hmemadul333/my-notebook/up').then(r=>r.json()).then(d=>document.getElementById('counter').innerText=d.value);
+    function toggleC(b) { let s = b.nextElementSibling; s.style.display = (s.style.display === 'block') ? 'none' : 'block'; }
+    function addC(b) { let ul = b.nextElementSibling; let li = document.createElement('li'); li.innerText = b.previousElementSibling.value; ul.appendChild(li); b.previousElementSibling.value = ''; }
 </script>
 
 </body>
