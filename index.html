@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Personal Digital Notebook</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignal.public.js" async></script>
+
     <style>
         body {
             background-color: #f0f8ff;
@@ -14,7 +17,6 @@
             color: #333;
         }
 
-        /* 🌐 গুগল ট্রান্সলেটর বক্সের সুন্দর ডিজাইন */
         .translate-container {
             text-align: right;
             margin-bottom: 15px;
@@ -99,6 +101,29 @@
             background-color: #000;
         }
 
+        /* 🔔 সাবস্ক্রাইব ও মেম্বারশিপ বাটন ডিজাইন */
+        .btn-subscribe {
+            background: #ff4500;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 10px rgba(255, 69, 0, 0.3);
+            transition: 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn-subscribe:hover {
+            background: #e03d00;
+            transform: scale(1.03);
+        }
+
         /* 👍 💬 ↪️ লাইক, কমেন্ট ও শেয়ার সেকশনের স্টাইল */
         .interaction-box {
             display: flex;
@@ -125,7 +150,6 @@
         .btn-interact:hover { color: #2196F3; }
         .btn-interact.liked { color: #e91e63; }
 
-        /* কমেন্ট বক্সের স্টাইল */
         .comment-section {
             margin-top: 15px;
             background: #f9f9f9;
@@ -219,6 +243,15 @@
             <hr class="divider">
         </div>
 
+        <div class="section-title">Join My Community 🚀</div>
+        <div class="card" style="border-left-color: #ff4500; text-align: center;">
+            <h2>Become an Official Member! 💎</h2>
+            <p>Subscribe to get instant mobile notifications whenever I upload a new anime edit, gameplay video, or cool status post!</p>
+            <button class="btn-subscribe" id="onesignal-bell-launcher">
+                <i class="fa-solid fa-bell"></i> Subscribe to Channel
+            </button>
+        </div>
+
         <div class="section-title">My Sports Activities 🏏⚽</div>
 
         <div class="card cricket-card">
@@ -310,7 +343,24 @@
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <script>
-        // --- গুগল ট্রান্সলেটর অ্যাক্টিভেট করার ফাংশন ---
+        // --- 🔔 OneSignal নোটিফিকেশন ইনিশিয়ালাইজেশন ---
+        window.OneSignal = window.OneSignal || [];
+        OneSignal.push(async function() {
+            await OneSignal.init({
+                appId: "YOUR_ONESIGNAL_APP_ID_HERE", // 👈 এখানে আপনার ওয়ান-সিগন্যাল অ্যাপ আইডি বসাবেন
+                safari_web_id: "",
+                notifyButton: {
+                    enable: false, // আমরা কাস্টম বাটন ব্যবহার করছি তাই এটি অফ
+                },
+            });
+            
+            // বাটনে ক্লিক করলে সাবস্ক্রিপশন পপ-আপ চালু হবে
+            document.getElementById('onesignal-bell-launcher').addEventListener('click', function() {
+                OneSignal.User.PushSubscription.optIn();
+            });
+        });
+
+        // --- গুগল ট্রান্সলেটর ফাংশন ---
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en', 
@@ -318,7 +368,7 @@
             }, 'google_translate_element');
         }
 
-        // --- ইউনিক ভিউয়ার কাউন্টার স্ক্রিপ্ট ---
+        // --- ভিউয়ার কাউন্টার স্ক্রিপ্ট ---
         if (!localStorage.getItem('has_visited_notebook')) {
             fetch('https://api.counterapi.dev/v1/hmemadul333/my-notebook/up')
                 .then(response => response.json())
@@ -372,10 +422,7 @@
         }
 
         // --- কমেন্ট বক্সের লজিক ---
-        function focusComment() {
-            document.getElementById('comment-text').focus();
-        }
-
+        function focusComment() { document.getElementById('comment-text').focus(); }
         function addComment() {
             let input = document.getElementById('comment-text');
             let commentValue = input.value.trim();
@@ -391,4 +438,4 @@
     </script>
 
 </body>
-</html>
+            </html>
