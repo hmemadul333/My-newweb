@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Digital Notebook</title>
+    <title>My Digital Notebook</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
@@ -27,13 +27,18 @@
         .comment-section { display: none; margin-top: 10px; background: #f9f9f9; padding: 10px; border-radius: 8px; }
         .comment-input { width: 70%; padding: 5px; }
         video { width: 100%; border-radius: 8px; margin-top: 10px; }
+        .translate-container { text-align: right; margin-bottom: 10px; }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <div class="translate-container">
+        <div id="google_translate_element"></div>
+    </div>
+
     <div class="card" style="text-align: center;">
-        <h2>My Digital Notebook 🚀</h2>
+        <h2>Welcome to My Notebook 🚀</h2>
         <button class="btn-subscribe" onclick="OneSignal.push(function() { OneSignal.showNativePrompt(); });">
             🔔 Subscribe for Updates
         </button>
@@ -52,93 +57,14 @@
             <ul class="comments-list"></ul>
         </div>
     </div>
-
-    <div class="card">
-        <h3>Football ⚽</h3>
-        <p>Football is my passion!</p>
-        <div class="interaction-box">
-            <button class="btn-interact" onclick="toggleLike(this)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
-            <button class="btn-interact" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
-        </div>
-        <div class="comment-section">
-            <input type="text" class="comment-input" placeholder="Write a comment...">
-            <button onclick="addComment(this)">Post</button>
-            <ul class="comments-list"></ul>
-        </div>
+    
     </div>
 
-    <div class="card">
-        <h3>Free Fire 🎯</h3>
-        <p>Gaming helps in coding!</p>
-        <div class="interaction-box">
-            <button class="btn-interact" onclick="toggleLike(this)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
-            <button class="btn-interact" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
-        </div>
-        <div class="comment-section">
-            <input type="text" class="comment-input" placeholder="Write a comment...">
-            <button onclick="addComment(this)">Post</button>
-            <ul class="comments-list"></ul>
-        </div>
-    </div>
-
-    <div class="card">
-        <h3>Anime Collection 🌸</h3>
-        <p>I have watched over 200 series!</p>
-        <div class="interaction-box">
-            <button class="btn-interact" onclick="toggleLike(this)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
-            <button class="btn-interact" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
-        </div>
-        <div class="comment-section">
-            <input type="text" class="comment-input" placeholder="Write a comment...">
-            <button onclick="addComment(this)">Post</button>
-            <ul class="comments-list"></ul>
-        </div>
-    </div>
-
-    <div class="card">
-        <h3>Suzume Song 🌌</h3>
-        <video controls><source src="suzume-song.mp4" type="video/mp4"></video>
-        <div class="interaction-box">
-            <button class="btn-interact" onclick="toggleLike(this)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
-            <button class="btn-interact" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
-        </div>
-        <div class="comment-section">
-            <input type="text" class="comment-input" placeholder="Write a comment...">
-            <button onclick="addComment(this)">Post</button>
-            <ul class="comments-list"></ul>
-        </div>
-    </div>
-
-    <div class="card">
-        <h3>Solo Leveling Edit ⚡</h3>
-        <video controls><source src="jinwoo-edit.mp4" type="video/mp4"></video>
-        <div class="interaction-box">
-            <button class="btn-interact" onclick="toggleLike(this)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
-            <button class="btn-interact" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
-        </div>
-        <div class="comment-section">
-            <input type="text" class="comment-input" placeholder="Write a comment...">
-            <button onclick="addComment(this)">Post</button>
-            <ul class="comments-list"></ul>
-        </div>
-    </div>
-
-    <div class="card">
-        <h3>Muzan Edit ⚔️</h3>
-        <video controls><source src="muzan-edit.mp4" type="video/mp4"></video>
-        <div class="interaction-box">
-            <button class="btn-interact" onclick="toggleLike(this)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
-            <button class="btn-interact" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
-        </div>
-        <div class="comment-section">
-            <input type="text" class="comment-input" placeholder="Write a comment...">
-            <button onclick="addComment(this)">Post</button>
-            <ul class="comments-list"></ul>
-        </div>
-    </div>
-</div>
-
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script>
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
     function toggleLike(btn) { btn.classList.toggle('liked'); }
     function toggleComments(btn) { 
         let sec = btn.closest('.card').querySelector('.comment-section');
@@ -155,4 +81,4 @@
 </script>
 
 </body>
-            </html>
+</html>
