@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Digital Notebook</title>
+    
     <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
     <script>
       window.OneSignalDeferred = window.OneSignalDeferred || [];
@@ -15,11 +16,12 @@
         });
       });
     </script>
+
     <style>
         body { background-color: #0f172a; color: #fff; font-family: sans-serif; padding: 20px; }
         .container { max-width: 600px; margin: 0 auto; }
         .card { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; margin-bottom: 20px; }
-        .btn { background: #38bdf8; border: none; padding: 10px; border-radius: 5px; cursor: pointer; color: black; font-weight: bold; margin: 5px; }
+        .btn { background: #38bdf8; border: none; padding: 10px; border-radius: 5px; cursor: pointer; color: black; font-weight: bold; margin: 5px; text-decoration: none; display: inline-block; font-size: 0.9rem;}
         video { width: 100%; border-radius: 10px; margin-top: 10px; background: #000; }
         .details { color: #cbd5e1; margin: 10px 0; }
     </style>
@@ -69,23 +71,29 @@
         <h3>Video Gallery</h3>
         <p>Jinwoo Edit</p>
         <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/jinwoo-edit.mp4" type="video/mp4"></video>
-        <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
-        <button class="btn" onclick="prompt('Comment:')">Comment</button>
-        <button class="btn" onclick="navigator.share({url: window.location.href})">Share</button>
+        <div style="margin-top:10px;">
+            <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
+            <button class="btn" onclick="prompt('Comment:')">Comment</button>
+            <button class="btn" onclick="navigator.share({url: window.location.href})">Share</button>
+        </div>
 
         <p style="margin-top:20px;">Muzan Edit</p>
         <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/muzan-edit.mp4" type="video/mp4"></video>
-        <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
-        <button class="btn" onclick="prompt('Comment:')">Comment</button>
-        <button class="btn" onclick="navigator.share({url: window.location.href})">Share</button>
+        <div style="margin-top:10px;">
+            <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
+            <button class="btn" onclick="prompt('Comment:')">Comment</button>
+            <button class="btn" onclick="navigator.share({url: window.location.href})">Share</button>
+        </div>
 
         <p style="margin-top:20px;">Suzume Song</p>
         <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/suzume-song.mp4" type="video/mp4"></video>
-        <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
-        <button class="btn" onclick="prompt('Comment:')">Comment</button>
-        <button class="btn" onclick="navigator.share({url: window.location.href})">Share</button>
+        <div style="margin-top:10px;">
+            <button class="btn" onclick="this.innerText='Liked ❤️'">Like</button>
+            <button class="btn" onclick="prompt('Comment:')">Comment</button>
+            <button class="btn" onclick="navigator.share({url: window.location.href})">Share</button>
+        </div>
     </div>
 </div>
 
 </body>
-    </html>
+</html>
