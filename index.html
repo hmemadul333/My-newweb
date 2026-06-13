@@ -29,7 +29,7 @@
         .card { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; margin-bottom: 20px; }
         .btn { background: #38bdf8; border: none; padding: 10px; border-radius: 8px; cursor: pointer; color: black; font-weight: bold; margin: 5px; text-decoration: none; display: inline-block; font-size: 0.9rem;}
         video { width: 100%; border-radius: 10px; margin-top: 10px; background: #000; }
-        .details { color: #cbd5e1; margin: 10px 0; }
+        .details { color: #cbd5e1; margin: 10px 0; font-size: 0.95rem; }
     </style>
 </head>
 <body>
@@ -48,7 +48,7 @@
 
     <div class="card">
         <h3>Cricket</h3>
-        <p class="details">Cricket is a popular sport around the world.</p>
+        <p class="details">Cricket is a game played between two teams with a bat and ball. It is known as the gentleman's game and is extremely popular in countries like Bangladesh, India, and Australia.</p>
         <button class="btn" onclick="updateCount('like1')">Like <span id="like1">0</span></button>
         <button class="btn" onclick="navigator.share({title: 'Cricket', url: window.location.href})">Share</button>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
@@ -56,7 +56,7 @@
 
     <div class="card">
         <h3>Football</h3>
-        <p class="details">Football is the most followed sport globally.</p>
+        <p class="details">Football (Soccer) is the most popular sport globally. It involves two teams competing to score goals by kicking a ball into the opponent's net. Players like Messi and Ronaldo have made this sport legendary.</p>
         <button class="btn" onclick="updateCount('like2')">Like <span id="like2">0</span></button>
         <button class="btn" onclick="navigator.share({title: 'Football', url: window.location.href})">Share</button>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
@@ -64,7 +64,7 @@
 
     <div class="card">
         <h3>Free Fire</h3>
-        <p class="details">Free Fire is an exciting battle royale game.</p>
+        <p class="details">Garena Free Fire is a popular battle royale game where 50 players parachute onto an island in search of weapons and equipment to kill the others and survive as the last one standing.</p>
         <button class="btn" onclick="updateCount('like3')">Like <span id="like3">0</span></button>
         <button class="btn" onclick="navigator.share({title: 'Free Fire', url: window.location.href})">Share</button>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
@@ -72,7 +72,10 @@
 
     <div class="card">
         <h3>Anime Gallery</h3>
+        <p><strong>Jinwoo Edit:</strong> An amazing action edit from Solo Leveling.</p>
         <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/jinwoo-edit.mp4" type="video/mp4"></video>
+        <br><br>
+        <p><strong>Suzume Song:</strong> A beautiful and emotional track from the movie Suzume.</p>
         <br>
         <button class="btn" onclick="updateCount('v1')">Like <span id="v1">0</span></button>
         <button class="btn" onclick="navigator.share({url: window.location.href})">Share</button>
@@ -81,4 +84,4 @@
 </div>
 
 </body>
-        </html>
+</html>
