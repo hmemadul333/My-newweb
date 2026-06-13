@@ -11,22 +11,16 @@
       OneSignalDeferred.push(async function(OneSignal) {
         await OneSignal.init({
           appId: "d67610a1-181e-42cd-a2d2-837d92d2bb16",
-          safari_web_id: "web.onesignal.auto.20f3ee95-6f21-4aad-a9bb-9c5899a4353a",
-          promptOptions: {
-            slidedown: {
-                prompts: [{
-                    type: "push",
-                    autoPrompt: true,
-                    text: {
-                      actionMessage: "আমাদের নতুন আপডেট পেতে সাবস্ক্রাইব করুন!",
-                      acceptButton: "Allow",
-                      cancelButton: "Cancel"
-                    }
-                }]
-            }
-          }
+          safari_web_id: "web.onesignal.auto.20f3ee95-6f21-4aad-a9bb-9c5899a4353a"
         });
       });
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
     </script>
 
     <style>
@@ -42,6 +36,7 @@
 
 <div class="container">
     <h1>My Digital Notebook</h1>
+    <div id="google_translate_element"></div>
 
     <script>
         function updateCount(elementId) {
@@ -53,29 +48,37 @@
 
     <div class="card">
         <h3>Cricket</h3>
-        <p class="details">Cricket is my favorite sport.</p>
+        <p class="details">Cricket is a popular sport around the world.</p>
         <button class="btn" onclick="updateCount('like1')">Like <span id="like1">0</span></button>
-        <button class="btn" onclick="updateCount('share1'); navigator.share({title: 'Cricket', url: window.location.href})">Share <span id="share1">0</span></button>
+        <button class="btn" onclick="navigator.share({title: 'Cricket', url: window.location.href})">Share</button>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
     </div>
 
     <div class="card">
         <h3>Football</h3>
-        <p class="details">Football is a very popular game.</p>
+        <p class="details">Football is the most followed sport globally.</p>
         <button class="btn" onclick="updateCount('like2')">Like <span id="like2">0</span></button>
-        <button class="btn" onclick="updateCount('share2'); navigator.share({title: 'Football', url: window.location.href})">Share <span id="share2">0</span></button>
+        <button class="btn" onclick="navigator.share({title: 'Football', url: window.location.href})">Share</button>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
     </div>
 
     <div class="card">
-        <h3>Video Gallery</h3>
-        <p>Jinwoo Edit</p>
+        <h3>Free Fire</h3>
+        <p class="details">Free Fire is an exciting battle royale game.</p>
+        <button class="btn" onclick="updateCount('like3')">Like <span id="like3">0</span></button>
+        <button class="btn" onclick="navigator.share({title: 'Free Fire', url: window.location.href})">Share</button>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
+    </div>
+
+    <div class="card">
+        <h3>Anime Gallery</h3>
         <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/jinwoo-edit.mp4" type="video/mp4"></video>
         <br>
         <button class="btn" onclick="updateCount('v1')">Like <span id="v1">0</span></button>
-        <button class="btn" onclick="updateCount('s1'); navigator.share({url: window.location.href})">Share <span id="s1">0</span></button>
+        <button class="btn" onclick="navigator.share({url: window.location.href})">Share</button>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
     </div>
 </div>
 
 </body>
-</html>
+        </html>
