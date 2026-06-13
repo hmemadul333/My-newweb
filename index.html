@@ -10,9 +10,7 @@
     <script>
       window.OneSignal = window.OneSignal || [];
       OneSignal.push(function() {
-        OneSignal.init({
-          appId: "d67610a1-181e-42cd-a2d2-837d92d2bb16",
-        });
+        OneSignal.init({ appId: "d67610a1-181e-42cd-a2d2-837d92d2bb16" });
       });
     </script>
 
@@ -26,58 +24,87 @@
         .btn-interact.liked { color: #e91e63; }
         .comment-section { display: none; margin-top: 10px; background: #f9f9f9; padding: 10px; border-radius: 8px; }
         .comment-input { width: 70%; padding: 5px; }
-        video { width: 100%; border-radius: 8px; margin-top: 10px; }
+        video { width: 100%; border-radius: 8px; margin-top: 10px; background: #000; }
         .translate-container { text-align: right; margin-bottom: 10px; }
+        .counter-section { text-align: center; margin-top: 20px; font-weight: bold; color: #2196F3; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="translate-container">
-        <div id="google_translate_element"></div>
-    </div>
+    <div class="translate-container"><div id="google_translate_element"></div></div>
 
     <div class="card" style="text-align: center;">
-        <h2>Welcome to My Notebook 🚀</h2>
+        <h2>My Digital Notebook 🚀</h2>
         <button class="btn-subscribe" onclick="OneSignal.push(function() { OneSignal.showNativePrompt(); });">
             🔔 Subscribe for Updates
         </button>
     </div>
 
-    <div class="card">
-        <h3>Cricket 🏏</h3>
-        <p>I love playing cricket!</p>
+    <div class="card"><h3>Cricket 🏏</h3><p>I love playing cricket!</p>
         <div class="interaction-box">
             <button class="btn-interact" onclick="toggleLike(this)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
             <button class="btn-interact" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
+            <button class="btn-interact" onclick="sharePage()"><i class="fa-solid fa-share-nodes"></i> Share</button>
         </div>
-        <div class="comment-section">
-            <input type="text" class="comment-input" placeholder="Write a comment...">
-            <button onclick="addComment(this)">Post</button>
-            <ul class="comments-list"></ul>
+        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
+    </div>
+
+    <div class="card"><h3>Football ⚽</h3><p>Football is my passion!</p>
+        <div class="interaction-box">
+            <button class="btn-interact" onclick="toggleLike(this)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+            <button class="btn-interact" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
+            <button class="btn-interact" onclick="sharePage()"><i class="fa-solid fa-share-nodes"></i> Share</button>
         </div>
+        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
     </div>
-    
+
+    <div class="card"><h3>Free Fire 🎯</h3><p>Gaming helps in coding!</p>
+        <div class="interaction-box">
+            <button class="btn-interact" onclick="toggleLike(this)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+            <button class="btn-interact" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
+            <button class="btn-interact" onclick="sharePage()"><i class="fa-solid fa-share-nodes"></i> Share</button>
+        </div>
+        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
     </div>
+
+    <div class="card"><h3>Anime Collection 🌸</h3><p>Over 200 series watched!</p>
+        <div class="interaction-box">
+            <button class="btn-interact" onclick="toggleLike(this)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+            <button class="btn-interact" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
+            <button class="btn-interact" onclick="sharePage()"><i class="fa-solid fa-share-nodes"></i> Share</button>
+        </div>
+        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
+    </div>
+
+    <div class="card"><h3>Suzume Song 🌌</h3><video controls><source src="suzume-song.mp4" type="video/mp4"></video>
+        <div class="interaction-box"><button class="btn-interact" onclick="toggleLike(this)"><i class="fa-solid fa-thumbs-up"></i> Like</button><button class="btn-interact" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button><button class="btn-interact" onclick="sharePage()"><i class="fa-solid fa-share-nodes"></i> Share</button></div>
+        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
+    </div>
+
+    <div class="card"><h3>Solo Leveling ⚡</h3><video controls><source src="jinwoo-edit.mp4" type="video/mp4"></video>
+        <div class="interaction-box"><button class="btn-interact" onclick="toggleLike(this)"><i class="fa-solid fa-thumbs-up"></i> Like</button><button class="btn-interact" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button><button class="btn-interact" onclick="sharePage()"><i class="fa-solid fa-share-nodes"></i> Share</button></div>
+        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
+    </div>
+
+    <div class="card"><h3>Muzan Edit ⚔️</h3><video controls><source src="muzan-edit.mp4" type="video/mp4"></video>
+        <div class="interaction-box"><button class="btn-interact" onclick="toggleLike(this)"><i class="fa-solid fa-thumbs-up"></i> Like</button><button class="btn-interact" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button><button class="btn-interact" onclick="sharePage()"><i class="fa-solid fa-share-nodes"></i> Share</button></div>
+        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
+    </div>
+
+    <div class="counter-section">Total Page Views: <span id="counter">Loading...</span></div>
+</div>
 
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script>
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-    }
+    function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element'); }
     function toggleLike(btn) { btn.classList.toggle('liked'); }
-    function toggleComments(btn) { 
-        let sec = btn.closest('.card').querySelector('.comment-section');
-        sec.style.display = (sec.style.display === 'block') ? 'none' : 'block';
-    }
-    function addComment(btn) {
-        let input = btn.previousElementSibling;
-        let list = btn.nextElementSibling;
-        let li = document.createElement('li');
-        li.innerText = input.value;
-        list.appendChild(li);
-        input.value = '';
-    }
+    function toggleComments(btn) { let s = btn.closest('.card').querySelector('.comment-section'); s.style.display = (s.style.display === 'block') ? 'none' : 'block'; }
+    function addComment(btn) { let i = btn.previousElementSibling; let l = btn.nextElementSibling; let li = document.createElement('li'); li.innerText = i.value; l.appendChild(li); i.value = ''; }
+    function sharePage() { if (navigator.share) navigator.share({url: window.location.href}); else alert('Link copied!'); }
+    
+    // কাউন্টার
+    fetch('https://api.counterapi.dev/v1/hmemadul333/my-notebook/up').then(r=>r.json()).then(d=>document.getElementById('counter').innerText=d.value);
 </script>
 
 </body>
