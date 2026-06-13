@@ -6,436 +6,153 @@
     <title>My Personal Digital Notebook</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignal.public.js" async></script>
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    <script>
+      window.OneSignal = window.OneSignal || [];
+      OneSignal.push(function() {
+        OneSignal.init({
+          appId: "d67610a1-181e-42cd-a2d2-837d92d2bb16",
+        });
+      });
+    </script>
 
     <style>
-        body {
-            background-color: #f0f8ff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
-
-        .translate-container {
-            text-align: right;
-            margin-bottom: 15px;
-        }
-        
-        .header-section {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        h1 {
-            color: #ff4500;
-            margin-bottom: 5px;
-        }
-
-        .subtitle {
-            color: #666;
-            font-size: 16px;
-            margin-top: 5px;
-        }
-
-        .divider {
-            width: 80%;
-            height: 3px;
-            background-color: #ff4500;
-            margin: 20px auto;
-            border: none;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin: 35px 0 20px 0;
-            color: #222;
-            font-size: 22px;
-            border-bottom: 2px dashed #ccc;
-            padding-bottom: 8px;
-        }
-
-        .card {
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-left: 5px solid #2196F3;
-        }
-
-        .cricket-card { border-left-color: #4CAF50; }
-        .football-card { border-left-color: #FFC107; }
-        .freefire-card { border-left-color: #ff4500; }
-        .anime-card { border-left-color: #00BCD4; }
-        .video-card-suzume { border-left-color: #E91E63; }
-        .video-card-jinwoo { border-left-color: #1A237E; }
-        .video-card-muzan { border-left-color: #9C27B0; }
-
-        h2 {
-            margin-top: 0;
-            font-size: 19px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        p {
-            font-size: 15px;
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 0;
-        }
-
-        video {
-            display: block;
-            width: 100%;
-            border-radius: 8px;
-            margin-top: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            background-color: #000;
-        }
-
-        /* 🔔 সাবস্ক্রাইব ও মেম্বারশিপ বাটন ডিজাইন */
-        .btn-subscribe {
-            background: #ff4500;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 30px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 10px rgba(255, 69, 0, 0.3);
-            transition: 0.2s;
-            margin-top: 10px;
-        }
-
-        .btn-subscribe:hover {
-            background: #e03d00;
-            transform: scale(1.03);
-        }
-
-        /* 👍 💬 ↪️ লাইক, কমেন্ট ও শেয়ার সেকশনের স্টাইল */
-        .interaction-box {
-            display: flex;
-            justify-content: space-around;
-            padding: 12px 0;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            margin-top: 15px;
-        }
-
-        .btn-interact {
-            background: none;
-            border: none;
-            color: #555;
-            font-size: 16px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-            transition: 0.2s;
-        }
-
-        .btn-interact:hover { color: #2196F3; }
+        body { background-color: #f0f8ff; font-family: sans-serif; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; }
+        .card { background-color: #ffffff; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 5px solid #2196F3; }
+        .btn-subscribe { background: #ff4500; color: white; border: none; padding: 12px 20px; border-radius: 30px; cursor: pointer; width: 100%; font-weight: bold; margin-bottom: 20px; }
+        .interaction-box { display: flex; justify-content: space-around; padding: 10px 0; border-top: 1px solid #eee; margin-top: 15px; }
+        .btn-interact { background: none; border: none; cursor: pointer; color: #555; font-weight: bold; }
         .btn-interact.liked { color: #e91e63; }
-
-        .comment-section {
-            margin-top: 15px;
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-        }
-
-        .comment-input-box {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .comment-input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 14px;
-            outline: none;
-        }
-
-        .btn-comment {
-            background: #2196F3;
-            color: white;
-            border: none;
-            padding: 0 15px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .comments-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .comment-item {
-            background: white;
-            padding: 10px;
-            border-radius: 6px;
-            margin-bottom: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-            font-size: 14px;
-            border-left: 3px solid #2196F3;
-        }
-
-        /* Visitor Counter Styling */
-        .counter-section {
-            text-align: center;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-
-        .counter-title {
-            font-size: 14px;
-            color: #777;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-
-        .counter-number {
-            font-size: 32px;
-            font-weight: bold;
-            color: #2196F3;
-            background: #e3f2fd;
-            padding: 5px 20px;
-            border-radius: 8px;
-            display: inline-block;
-            letter-spacing: 2px;
-        }
+        .comment-section { display: none; margin-top: 10px; background: #f9f9f9; padding: 10px; border-radius: 8px; }
+        .comment-input { width: 70%; padding: 5px; }
+        video { width: 100%; border-radius: 8px; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        
-        <div class="translate-container">
-            <div id="google_translate_element"></div>
-        </div>
-
-        <div class="header-section">
-            <h1>Welcome to My Digital Notebook! 🏏⚽🎮</h1>
-            <p class="subtitle">I am learning coding using my mobile phone, and this is my complete web page.</p>
-            <hr class="divider">
-        </div>
-
-        <div class="section-title">Join My Community 🚀</div>
-        <div class="card" style="border-left-color: #ff4500; text-align: center;">
-            <h2>Become an Official Member! 💎</h2>
-            <p>Subscribe to get instant mobile notifications whenever I upload a new anime edit, gameplay video, or cool status post!</p>
-            <button class="btn-subscribe" id="onesignal-bell-launcher">
-                <i class="fa-solid fa-bell"></i> Subscribe to Channel
-            </button>
-        </div>
-
-        <div class="section-title">My Sports Activities 🏏⚽</div>
-
-        <div class="card cricket-card">
-            <h2 style="color: #4CAF50;">My Absolute Favorite: Cricket 🏏🔥</h2>
-            <p>I am really passionate about playing cricket, and I am quite good at it! It is a sport that brings out my competitive spirit and true enjoyment whenever I hit the field.</p>
-        </div>
-
-        <div class="card football-card">
-            <h2 style="color: #FFC107;">My Love for Football ⚽⚡</h2>
-            <p>I also have a strong liking for football. Although I am not the best player out there yet, I genuinely love the thrill and atmosphere of the game.</p>
-        </div>
-
-        <div class="section-title">Gaming Zone 🎮🎯</div>
-
-        <div class="card freefire-card">
-            <h2 style="color: #ff4500;">Favorite Mobile Game: Free Fire 🎯</h2>
-            <p>I love to play Free Fire in my free time. It helps me improve my quick decision-making skills, which also helps me in coding!</p>
-        </div>
-
-        <div class="section-title">My Favorite Anime Series 🍿🔥</div>
-
-        <div class="card anime-card">
-            <h2 style="color: #00BCD4;">My Anime Journey ⚡🌸</h2>
-            <p>I have watched more than 200 anime series. Among them, I really loved many, and some were average. I absolutely love watching anime, and I have been watching it for over three years now.</p>
-        </div>
-
-        <div class="section-title">My Video Zone 🎬🍿</div>
-
-        <div class="card video-card-suzume">
-            <h2 style="color: #E91E63;">The best anime song:Suzume 🌌🔑</h2>
-            <video controls>
-                <source src="suzume-song.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
-        <div class="card video-card-jinwoo">
-            <h2 style="color: #1A237E;">Sung Jinwoo - Solo Leveling Edit ⚡💀</h2>
-            <video controls>
-                <source src="jinwoo-edit.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
-        <div class="card video-card-muzan">
-            <h2 style="color: #9C27B0;">Muzan Kibutsuji - Demon Slayer Edit ⚔️🔥</h2>
-            <video controls>
-                <source src="muzan-edit.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
-        <div class="section-title">Interact with My Site 👍💬</div>
-        
-        <div class="card" style="border-left-color: #E91E63;">
-            <h2>Leave a Reaction! ⭐</h2>
-            <p>If you like my web page, please give a like, leave a comment, or share it with your friends!</p>
-            
-            <div class="interaction-box">
-                <button class="btn-interact" id="like-btn" onclick="toggleLike()">
-                    <i class="fa-solid fa-thumbs-up"></i> Like (<span id="like-count">0</span>)
-                </button>
-                <button class="btn-interact" onclick="focusComment()">
-                    <i class="fa-solid fa-comment"></i> Comment
-                </button>
-                <button class="btn-interact" onclick="shareSite()">
-                    <i class="fa-solid fa-share-nodes"></i> Share
-                </button>
-            </div>
-
-            <div class="comment-section">
-                <div class="comment-input-box">
-                    <input type="text" class="comment-input" id="comment-text" placeholder="Write a comment...">
-                    <button class="btn-comment" onclick="addComment()">Post</button>
-                </div>
-                <ul class="comments-list" id="comments-container">
-                    <li class="comment-item">Welcome to my website! Feel free to comment.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="counter-section">
-            <div class="counter-title">🌐 Total Real Page Views</div>
-            <div class="counter-number" id="global-counter">Loading...</div>
-        </div>
-
+<div class="container">
+    <div class="card" style="text-align: center;">
+        <h2>My Digital Notebook 🚀</h2>
+        <button class="btn-subscribe" onclick="OneSignal.push(function() { OneSignal.showNativePrompt(); });">
+            🔔 Subscribe for Updates
+        </button>
     </div>
 
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div class="card">
+        <h3>Cricket 🏏</h3>
+        <p>I love playing cricket!</p>
+        <div class="interaction-box">
+            <button class="btn-interact" onclick="toggleLike(this)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+            <button class="btn-interact" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
+        </div>
+        <div class="comment-section">
+            <input type="text" class="comment-input" placeholder="Write a comment...">
+            <button onclick="addComment(this)">Post</button>
+            <ul class="comments-list"></ul>
+        </div>
+    </div>
 
-    <script>
-        // --- 🔔 OneSignal নোটিফিকেশন ইনিশিয়ালাইজেশন ---
-        window.OneSignal = window.OneSignal || [];
-        OneSignal.push(async function() {
-            await OneSignal.init({
-                appId: "YOUR_ONESIGNAL_APP_ID_HERE", // 👈 এখানে আপনার ওয়ান-সিগন্যাল অ্যাপ আইডি বসাবেন
-                safari_web_id: "",
-                notifyButton: {
-                    enable: false, // আমরা কাস্টম বাটন ব্যবহার করছি তাই এটি অফ
-                },
-            });
-            
-            // বাটনে ক্লিক করলে সাবস্ক্রিপশন পপ-আপ চালু হবে
-            document.getElementById('onesignal-bell-launcher').addEventListener('click', function() {
-                OneSignal.User.PushSubscription.optIn();
-            });
-        });
+    <div class="card">
+        <h3>Football ⚽</h3>
+        <p>Football is my passion!</p>
+        <div class="interaction-box">
+            <button class="btn-interact" onclick="toggleLike(this)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+            <button class="btn-interact" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
+        </div>
+        <div class="comment-section">
+            <input type="text" class="comment-input" placeholder="Write a comment...">
+            <button onclick="addComment(this)">Post</button>
+            <ul class="comments-list"></ul>
+        </div>
+    </div>
 
-        // --- গুগল ট্রান্সলেটর ফাংশন ---
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en', 
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-        }
+    <div class="card">
+        <h3>Free Fire 🎯</h3>
+        <p>Gaming helps in coding!</p>
+        <div class="interaction-box">
+            <button class="btn-interact" onclick="toggleLike(this)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+            <button class="btn-interact" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
+        </div>
+        <div class="comment-section">
+            <input type="text" class="comment-input" placeholder="Write a comment...">
+            <button onclick="addComment(this)">Post</button>
+            <ul class="comments-list"></ul>
+        </div>
+    </div>
 
-        // --- ভিউয়ার কাউন্টার স্ক্রিপ্ট ---
-        if (!localStorage.getItem('has_visited_notebook')) {
-            fetch('https://api.counterapi.dev/v1/hmemadul333/my-notebook/up')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('global-counter').innerText = data.value.toString().padStart(5, '0');
-                    localStorage.setItem('has_visited_notebook', 'true');
-                })
-                .catch(error => { document.getElementById('global-counter').innerText = "00001"; });
-        } else {
-            fetch('https://api.counterapi.dev/v1/hmemadul333/my-notebook/get')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('global-counter').innerText = data.value.toString().padStart(5, '0');
-                })
-                .catch(error => { document.getElementById('global-counter').innerText = "00001"; });
-        }
+    <div class="card">
+        <h3>Anime Collection 🌸</h3>
+        <p>I have watched over 200 series!</p>
+        <div class="interaction-box">
+            <button class="btn-interact" onclick="toggleLike(this)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+            <button class="btn-interact" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
+        </div>
+        <div class="comment-section">
+            <input type="text" class="comment-input" placeholder="Write a comment...">
+            <button onclick="addComment(this)">Post</button>
+            <ul class="comments-list"></ul>
+        </div>
+    </div>
 
-        // --- লাইক বাটনের লজিক ---
-        fetch('https://api.counterapi.dev/v1/hmemadul333/my-notebook-likes/get')
-            .then(res => res.json())
-            .then(data => { document.getElementById('like-count').innerText = data.value; })
-            .catch(() => { document.getElementById('like-count').innerText = "0"; });
+    <div class="card">
+        <h3>Suzume Song 🌌</h3>
+        <video controls><source src="suzume-song.mp4" type="video/mp4"></video>
+        <div class="interaction-box">
+            <button class="btn-interact" onclick="toggleLike(this)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+            <button class="btn-interact" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
+        </div>
+        <div class="comment-section">
+            <input type="text" class="comment-input" placeholder="Write a comment...">
+            <button onclick="addComment(this)">Post</button>
+            <ul class="comments-list"></ul>
+        </div>
+    </div>
 
-        function toggleLike() {
-            let likeBtn = document.getElementById('like-btn');
-            if (!localStorage.getItem('site_liked')) {
-                fetch('https://api.counterapi.dev/v1/hmemadul333/my-notebook-likes/up')
-                    .then(res => res.json())
-                    .then(data => {
-                        document.getElementById('like-count').innerText = data.value;
-                        likeBtn.classList.add('liked');
-                        localStorage.setItem('site_liked', 'true');
-                    });
-            } else {
-                alert("You have already liked this website! Thank you! ❤️");
-            }
-        }
+    <div class="card">
+        <h3>Solo Leveling Edit ⚡</h3>
+        <video controls><source src="jinwoo-edit.mp4" type="video/mp4"></video>
+        <div class="interaction-box">
+            <button class="btn-interact" onclick="toggleLike(this)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+            <button class="btn-interact" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
+        </div>
+        <div class="comment-section">
+            <input type="text" class="comment-input" placeholder="Write a comment...">
+            <button onclick="addComment(this)">Post</button>
+            <ul class="comments-list"></ul>
+        </div>
+    </div>
 
-        // --- শেয়ার বাটনের লজিক ---
-        function shareSite() {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'My Personal Digital Notebook',
-                    text: 'Check out my awesome personal coding website!',
-                    url: window.location.href
-                }).catch(console.error);
-            } else {
-                navigator.clipboard.writeText(window.location.href);
-                alert("Website link copied to clipboard! Share it anywhere.");
-            }
-        }
+    <div class="card">
+        <h3>Muzan Edit ⚔️</h3>
+        <video controls><source src="muzan-edit.mp4" type="video/mp4"></video>
+        <div class="interaction-box">
+            <button class="btn-interact" onclick="toggleLike(this)"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+            <button class="btn-interact" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
+        </div>
+        <div class="comment-section">
+            <input type="text" class="comment-input" placeholder="Write a comment...">
+            <button onclick="addComment(this)">Post</button>
+            <ul class="comments-list"></ul>
+        </div>
+    </div>
+</div>
 
-        // --- কমেন্ট বক্সের লজিক ---
-        function focusComment() { document.getElementById('comment-text').focus(); }
-        function addComment() {
-            let input = document.getElementById('comment-text');
-            let commentValue = input.value.trim();
-            if (commentValue !== "") {
-                let container = document.getElementById('comments-container');
-                let newComment = document.createElement('li');
-                newComment.className = 'comment-item';
-                newComment.innerText = commentValue;
-                container.appendChild(newComment);
-                input.value = "";
-            }
-        }
-    </script>
+<script>
+    function toggleLike(btn) { btn.classList.toggle('liked'); }
+    function toggleComments(btn) { 
+        let sec = btn.closest('.card').querySelector('.comment-section');
+        sec.style.display = (sec.style.display === 'block') ? 'none' : 'block';
+    }
+    function addComment(btn) {
+        let input = btn.previousElementSibling;
+        let list = btn.nextElementSibling;
+        let li = document.createElement('li');
+        li.innerText = input.value;
+        list.appendChild(li);
+        input.value = '';
+    }
+</script>
 
 </body>
             </html>
