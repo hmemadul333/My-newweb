@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Professional Digital Notebook</title>
+    <title>My Personal Digital Notebook</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
@@ -17,220 +17,124 @@
     </script>
 
     <style>
-        /* CSS Styles - Detailed and Expanded */
-        body { 
-            background-color: #eef2f7; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            padding: 20px; 
-            color: #333; 
-            line-height: 1.6;
-        }
-
-        .container { 
-            max-width: 650px; 
-            margin: 0 auto; 
-            padding: 20px;
-        }
-
-        .card { 
-            background-color: #ffffff; 
-            border-radius: 15px; 
-            padding: 25px; 
-            margin-bottom: 30px; 
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08); 
-            border-left: 8px solid #2196F3;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        h1, h2, h3 { 
-            color: #1a2a6c; 
-            margin-top: 0;
-        }
-
-        .btn-subscribe { 
-            background: linear-gradient(90deg, #ff4500, #ff8c00); 
-            color: white; 
-            border: none; 
-            padding: 15px 30px; 
-            border-radius: 50px; 
-            cursor: pointer; 
-            width: 100%; 
-            font-size: 18px; 
-            font-weight: bold; 
-            box-shadow: 0 4px 10px rgba(255,69,0,0.3);
-        }
-
-        .interaction-area { 
-            display: flex; 
-            justify-content: space-around; 
-            padding-top: 20px; 
-            border-top: 2px solid #f4f4f4; 
-            margin-top: 20px;
-        }
-
-        .btn-interact { 
-            background: #f8f9fa; 
-            border: 1px solid #dee2e6; 
-            padding: 8px 15px; 
-            border-radius: 20px; 
-            cursor: pointer; 
-            font-size: 14px; 
-            font-weight: 600;
-            color: #495057;
-            transition: all 0.3s;
-        }
-
-        .btn-interact:hover {
-            background: #2196F3;
-            color: white;
-            border-color: #2196F3;
-        }
-
-        .comment-box { 
-            display: none; 
-            margin-top: 20px; 
-            padding: 15px;
-            background: #f9f9f9;
-            border-radius: 10px;
-        }
-
-        .comment-input { 
-            width: 100%; 
-            padding: 10px; 
-            border: 1px solid #ccc; 
-            border-radius: 5px; 
-            box-sizing: border-box;
-        }
-
-        video { 
-            width: 100%; 
-            border-radius: 12px; 
-            margin-top: 15px; 
-            background: #000;
-        }
-
-        .translate-widget { 
-            text-align: right; 
-            margin-bottom: 20px; 
-        }
-
-        .footer-counter { 
-            text-align: center; 
-            font-size: 16px; 
-            color: #555; 
-            margin-top: 40px; 
-            padding: 20px;
-            background: #fff;
-            border-radius: 10px;
-        }
+        /* CSS স্টাইল - সম্পূর্ণ ডিজাইন কোড */
+        body { background-color: #f4f7f6; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; }
+        .header-card { background: #fff; padding: 25px; border-radius: 20px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 30px; }
+        .post-card { background: #fff; padding: 20px; border-radius: 20px; margin-bottom: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 6px solid #2196F3; }
+        .btn-main { background: #ff4500; color: white; padding: 12px 25px; border-radius: 30px; border: none; cursor: pointer; font-weight: bold; width: 100%; margin-top: 15px; }
+        .actions { display: flex; justify-content: space-between; margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px; }
+        .action-btn { background: none; border: none; cursor: pointer; color: #555; font-size: 15px; }
+        .action-btn:hover { color: #2196F3; }
+        .comment-section { display: none; margin-top: 15px; padding: 10px; background: #f9f9f9; border-radius: 10px; }
+        .comment-input { width: 70%; padding: 8px; border: 1px solid #ddd; border-radius: 5px; }
+        .video-box { width: 100%; border-radius: 15px; margin-top: 15px; background: #000; }
+        .translate-box { text-align: right; margin-bottom: 20px; }
+        .view-counter { text-align: center; font-weight: bold; color: #555; padding: 20px; border-top: 2px solid #ddd; margin-top: 40px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="translate-widget">
-        <div id="google_translate_element"></div>
-    </div>
+    <div class="translate-box"><div id="google_translate_element"></div></div>
 
-    <div class="card">
-        <h1>My Personal Digital Notebook 🚀</h1>
-        <p>Welcome to my world of cricket, football, gaming, and anime. Feel free to explore!</p>
-        <button class="btn-subscribe" onclick="OneSignal.push(function() { OneSignal.showNativePrompt(); });">
-            <i class="fa-solid fa-bell"></i> Get Notifications
+    <div class="header-card">
+        <h1>My Digital Notebook 📒</h1>
+        <p>Stay connected for my daily updates!</p>
+        <button class="btn-main" onclick="OneSignal.push(function() { OneSignal.showNativePrompt(); });">
+            🔔 Subscribe for Notifications
         </button>
     </div>
 
-    <div class="card" id="post-cricket">
+    <div class="post-card">
         <h3>Cricket 🏏</h3>
-        <p>Cricket is not just a game; it is an emotion for me. I love playing and watching every match.</p>
-        <div class="interaction-area">
-            <button class="btn-interact" onclick="this.classList.toggle('active')"><i class="fa-solid fa-thumbs-up"></i> Like</button>
-            <button class="btn-interact" onclick="toggleComments('comments-cricket')"><i class="fa-solid fa-comment"></i> Comment</button>
-            <button class="btn-interact" onclick="share()"><i class="fa-solid fa-share"></i> Share</button>
+        <p>Cricket is my favourite sport. The thrill of hitting a six is unmatched!</p>
+        <div class="actions">
+            <button class="action-btn" onclick="this.style.color='red'"><i class="fa-solid fa-heart"></i> Like</button>
+            <button class="action-btn" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
+            <button class="action-btn" onclick="sharePost()"><i class="fa-solid fa-share-nodes"></i> Share</button>
         </div>
-        <div class="comment-box" id="comments-cricket">
-            <input type="text" class="comment-input" placeholder="Write a comment...">
-            <button onclick="postComment('comments-cricket')">Post</button>
-            <ul style="list-style: none; padding: 0;"></ul>
-        </div>
+        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
     </div>
 
-    <div class="card" id="post-football">
+    <div class="post-card">
         <h3>Football ⚽</h3>
-        <p>Football is my ultimate passion. The speed, the strategy, and the goal moments are just incredible.</p>
-        <div class="interaction-area">
-            <button class="btn-interact" onclick="this.classList.toggle('active')"><i class="fa-solid fa-thumbs-up"></i> Like</button>
-            <button class="btn-interact" onclick="toggleComments('comments-football')"><i class="fa-solid fa-comment"></i> Comment</button>
-            <button class="btn-interact" onclick="share()"><i class="fa-solid fa-share"></i> Share</button>
+        <p>Nothing beats the excitement of a high-stakes football match.</p>
+        <div class="actions">
+            <button class="action-btn" onclick="this.style.color='red'"><i class="fa-solid fa-heart"></i> Like</button>
+            <button class="action-btn" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
+            <button class="action-btn" onclick="sharePost()"><i class="fa-solid fa-share-nodes"></i> Share</button>
         </div>
-        <div class="comment-box" id="comments-football">
-            <input type="text" class="comment-input" placeholder="Write a comment...">
-            <button onclick="postComment('comments-football')">Post</button>
-            <ul style="list-style: none; padding: 0;"></ul>
-        </div>
+        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
     </div>
 
-    <div class="card">
+    <div class="post-card">
+        <h3>Free Fire 🎯</h3>
+        <p>Clutching in Free Fire is the best way to spend my leisure time.</p>
+        <div class="actions">
+            <button class="action-btn" onclick="this.style.color='red'"><i class="fa-solid fa-heart"></i> Like</button>
+            <button class="action-btn" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
+            <button class="action-btn" onclick="sharePost()"><i class="fa-solid fa-share-nodes"></i> Share</button>
+        </div>
+        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
+    </div>
+
+    <div class="post-card">
+        <h3>Anime Collection 🌸</h3>
+        <p>I am a huge anime fan. My journey started with Naruto!</p>
+        <div class="actions">
+            <button class="action-btn" onclick="this.style.color='red'"><i class="fa-solid fa-heart"></i> Like</button>
+            <button class="action-btn" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
+            <button class="action-btn" onclick="sharePost()"><i class="fa-solid fa-share-nodes"></i> Share</button>
+        </div>
+        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
+    </div>
+
+    <div class="post-card">
         <h3>Suzume Song 🌌</h3>
-        <video controls><source src="suzume-song.mp4" type="video/mp4"></video>
-        <div class="interaction-area">
-            <button class="btn-interact" onclick="this.classList.toggle('active')"><i class="fa-solid fa-thumbs-up"></i> Like</button>
-            <button class="btn-interact" onclick="toggleComments('comments-video1')"><i class="fa-solid fa-comment"></i> Comment</button>
+        <video class="video-box" controls><source src="suzume-song.mp4" type="video/mp4"></video>
+        <div class="actions">
+            <button class="action-btn" onclick="this.style.color='red'"><i class="fa-solid fa-heart"></i> Like</button>
+            <button class="action-btn" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
+            <button class="action-btn" onclick="sharePost()"><i class="fa-solid fa-share-nodes"></i> Share</button>
         </div>
-        <div class="comment-box" id="comments-video1">
-            <input type="text" class="comment-input" placeholder="Write a comment...">
-            <button onclick="postComment('comments-video1')">Post</button>
-            <ul style="list-style: none; padding: 0;"></ul>
-        </div>
+        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
     </div>
 
-    <div class="footer-counter">
-        <i class="fa-solid fa-eye"></i> TOTAL REAL PAGE VIEWS: <span id="counter">Fetching...</span>
+    <div class="post-card">
+        <h3>Solo Leveling Edit ⚡</h3>
+        <video class="video-box" controls><source src="jinwoo-edit.mp4" type="video/mp4"></video>
+        <div class="actions">
+            <button class="action-btn" onclick="this.style.color='red'"><i class="fa-solid fa-heart"></i> Like</button>
+            <button class="action-btn" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
+            <button class="action-btn" onclick="sharePost()"><i class="fa-solid fa-share-nodes"></i> Share</button>
+        </div>
+        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
+    </div>
+
+    <div class="post-card">
+        <h3>Muzan Edit ⚔️</h3>
+        <video class="video-box" controls><source src="muzan-edit.mp4" type="video/mp4"></video>
+        <div class="actions">
+            <button class="action-btn" onclick="this.style.color='red'"><i class="fa-solid fa-heart"></i> Like</button>
+            <button class="action-btn" onclick="toggleComments(this)"><i class="fa-solid fa-comment"></i> Comment</button>
+            <button class="action-btn" onclick="sharePost()"><i class="fa-solid fa-share-nodes"></i> Share</button>
+        </div>
+        <div class="comment-section"><input type="text" class="comment-input" placeholder="Write..."><button onclick="addComment(this)">Post</button><ul></ul></div>
+    </div>
+
+    <div class="view-counter">
+        <i class="fa-solid fa-eye"></i> TOTAL PAGE VIEWS: <span id="counter">Loading...</span>
     </div>
 </div>
 
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script>
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-    }
-
-    function toggleComments(id) {
-        const box = document.getElementById(id);
-        box.style.display = (box.style.display === 'block') ? 'none' : 'block';
-    }
-
-    function postComment(id) {
-        const input = document.querySelector(`#${id} .comment-input`);
-        const list = document.querySelector(`#${id} ul`);
-        if(input.value.trim() !== "") {
-            const li = document.createElement('li');
-            li.innerHTML = `<strong>User:</strong> ${input.value}`;
-            list.appendChild(li);
-            input.value = '';
-        }
-    }
-
-    function share() {
-        if(navigator.share) {
-            navigator.share({title: document.title, url: window.location.href});
-        } else {
-            alert("Link copied to clipboard!");
-        }
-    }
-
-    // Counter API Call
-    fetch('https://api.counterapi.dev/v1/hmemadul333/my-notebook/up')
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('counter').innerText = data.value;
-    })
-    .catch(err => console.log(err));
+    function googleTranslateElementInit() { new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element'); }
+    function toggleComments(btn) { let sec = btn.closest('.post-card').querySelector('.comment-section'); sec.style.display = (sec.style.display === 'block') ? 'none' : 'block'; }
+    function addComment(btn) { let input = btn.previousElementSibling; let list = btn.nextElementSibling.nextElementSibling; let li = document.createElement('li'); li.innerText = input.value; list.appendChild(li); input.value = ''; }
+    function sharePost() { if (navigator.share) navigator.share({url: window.location.href}); else alert('Link copied!'); }
+    fetch('https://api.counterapi.dev/v1/hmemadul333/my-notebook/up').then(r=>r.json()).then(d=>document.getElementById('counter').innerText=d.value);
 </script>
 
 </body>
