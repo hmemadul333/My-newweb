@@ -52,11 +52,32 @@
     <div id="google_translate_element" style="margin-bottom: 20px;"></div>
 
     <script>
-        const scriptUrl = "https://script.google.com/macros/s/AKfycbzqDRN0gCElKd_6eFB8swmyZf7a8wCXzFi4FYRN3qjO9JV144-ECoFbW42nfyk93cRX/exec";
+        // আপনার নতুন গুগল স্ক্রিপ্ট লিঙ্কটি এখানে বসানো হলো
+        const scriptUrl = "https://script.google.com/macros/s/AKfycbz9jJi4r_OxPk0CT8SmJurK-1-GlMZlsqEbeLHi9u5vXQQ7qs4tHl_IEuAKbBKdCu1W/exec";
+
+        // ওয়েবসাইট লোড হওয়ার সাথে সাথে গুগল শিট থেকে লাইক সংখ্যা এনে বসাবে
+        window.onload = function() {
+            fetch(scriptUrl)
+                .then(res => res.json())
+                .then(data => {
+                    data.forEach((row, index) => {
+                        if(index > 0) { // হেডার রো (id, likes) বাদ দিয়ে ডাটা লোড
+                            let id = row[0];
+                            let count = row[1];
+                            let el = document.getElementById('count-' + id);
+                            if(el) el.innerText = count;
+                        }
+                    });
+                });
+        };
+
         function addLike(id) {
+            // এনিমেশন: সাথে সাথে কাউন্ট বাড়ানো
             const countSpan = document.getElementById('count-' + id);
             countSpan.innerText = parseInt(countSpan.innerText) + 1;
-            fetch(scriptUrl + "?id=" + id).catch(err => console.error("Error"));
+            
+            // গুগল শিটে ডাটা পাঠানো
+            fetch(scriptUrl + "?id=" + id);
         }
     </script>
 
