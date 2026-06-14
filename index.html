@@ -32,7 +32,7 @@
         .btn { background: #38bdf8; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; color: #000; font-weight: bold; margin: 5px; text-decoration: none; display: inline-block; font-size: 0.85rem;}
         
         .like-btn { cursor: pointer; transition: transform 0.2s, background-color 0.3s; border: none; background: #334155; color: white; padding: 8px 15px; border-radius: 20px; font-weight: bold; margin: 5px; }
-        .like-btn:disabled { opacity: 0.6; cursor: not-allowed; background: #475569; }
+        .like-btn:disabled { opacity: 0.5; cursor: not-allowed; background: #1e293b; }
         .like-btn:active:not(:disabled) { transform: scale(1.3); background: #f43f5e; }
         .like-count { margin-left: 5px; color: #38bdf8; }
 
@@ -55,6 +55,7 @@
     <script>
         const scriptUrl = "https://script.google.com/macros/s/AKfycbyArdXwoWtIZo8GWoPR08lqWmg0ti-O_h0NtwEz_k-WBuz_lrPoCIBIYRLCWqe7CIKg/exec";
 
+        // পেজ লোড হওয়ার সময় স্ট্যাটাস চেক করা
         window.onload = function() {
             fetch(scriptUrl)
                 .then(res => res.json())
@@ -66,12 +67,10 @@
                             let el = document.getElementById('count-' + id);
                             if(el) {
                                 el.innerText = count;
-                                // যদি আগে লাইক দেওয়া থাকে, তবে বাটনটি ডিজেবল করে রাখো
-                                if (localStorage.getItem('liked_' + id)) {
+                                // চেক করা: আগে লাইক দেওয়া আছে কি না
+                                if (localStorage.getItem('liked_' + id) === 'true') {
                                     let btn = document.querySelector(`button[onclick="addLike('${id}', this)"]`);
-                                    if (btn) {
-                                        btn.disabled = true;
-                                    }
+                                    if (btn) btn.disabled = true;
                                 }
                             }
                         }
@@ -80,18 +79,27 @@
         };
 
         function addLike(id, btnElement) {
-            // লাইক দেওয়ার সাথে সাথে localStorage-এ মার্ক করে রাখা
+            // ডাবল ক্লিক ঠেকানোর জন্য সুরক্ষা
+            if (localStorage.getItem('liked_' + id) === 'true') {
+                alert("আপনি অলরেডি লাইক দিয়েছেন!");
+                return;
+            }
+
+            // লোকাল স্টোরেজ আপডেট
             localStorage.setItem('liked_' + id, 'true');
             
+            // বাটন ডিজেবল ও কাউন্ট আপডেট
             btnElement.disabled = true;
             const countSpan = document.getElementById('count-' + id);
             countSpan.innerText = parseInt(countSpan.innerText) + 1;
             
+            // সার্ভারে রিকোয়েস্ট পাঠানো
             fetch(scriptUrl + "?id=" + id)
                 .catch(err => {
                     console.error("Error:", err);
+                    alert("লাইক দিতে সমস্যা হয়েছে, আবার চেষ্টা করুন।");
                     btnElement.disabled = false;
-                    localStorage.removeItem('liked_' + id); // এরর হলে আবার রিমুভ করা
+                    localStorage.removeItem('liked_' + id);
                 });
         }
     </script>
@@ -150,4 +158,4 @@
 </div>
 
 </body>
-            </html>
+</html>
