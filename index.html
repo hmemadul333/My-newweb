@@ -52,16 +52,15 @@
     <div id="google_translate_element" style="margin-bottom: 20px;"></div>
 
     <script>
-        // আপনার নতুন গুগল স্ক্রিপ্ট লিঙ্কটি এখানে বসানো হলো
         const scriptUrl = "https://script.google.com/macros/s/AKfycbz9jJi4r_OxPk0CT8SmJurK-1-GlMZlsqEbeLHi9u5vXQQ7qs4tHl_IEuAKbBKdCu1W/exec";
 
-        // ওয়েবসাইট লোড হওয়ার সাথে সাথে গুগল শিট থেকে লাইক সংখ্যা এনে বসাবে
+        // পেজ লোড হওয়ার সময় শিট থেকে বর্তমান লাইক সংখ্যা নিয়ে আসবে
         window.onload = function() {
             fetch(scriptUrl)
                 .then(res => res.json())
                 .then(data => {
                     data.forEach((row, index) => {
-                        if(index > 0) { // হেডার রো (id, likes) বাদ দিয়ে ডাটা লোড
+                        if(index > 0) { 
                             let id = row[0];
                             let count = row[1];
                             let el = document.getElementById('count-' + id);
@@ -72,11 +71,11 @@
         };
 
         function addLike(id) {
-            // এনিমেশন: সাথে সাথে কাউন্ট বাড়ানো
+            // ক্লিক করার সাথে সাথে সংখ্যা ১ বাড়িয়ে দেখাবে
             const countSpan = document.getElementById('count-' + id);
             countSpan.innerText = parseInt(countSpan.innerText) + 1;
             
-            // গুগল শিটে ডাটা পাঠানো
+            // ব্যাকগ্রাউন্ডে শিটে আপডেট পাঠাবে
             fetch(scriptUrl + "?id=" + id);
         }
     </script>
