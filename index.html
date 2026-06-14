@@ -30,6 +30,12 @@
         .profile-img { width: 120px; height: 120px; border-radius: 50%; border: 4px solid #fff; margin-bottom: 15px; object-fit: cover; }
         .card { background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); }
         .btn { background: #38bdf8; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; color: #000; font-weight: bold; margin: 5px; text-decoration: none; display: inline-block; font-size: 0.85rem;}
+        
+        /* নতুন লাইক বাটনের স্টাইল */
+        .like-btn { cursor: pointer; transition: transform 0.2s, background-color 0.3s; border: none; background: #334155; color: white; padding: 8px 15px; border-radius: 20px; font-weight: bold; margin: 5px; }
+        .like-btn:active { transform: scale(1.3); background: #f43f5e; }
+        .like-count { margin-left: 5px; color: #38bdf8; }
+
         video { width: 100%; border-radius: 10px; margin-top: 10px; background: #000; }
         .details { color: #cbd5e1; margin: 10px 0; font-size: 0.95rem; }
         .video-box { margin-bottom: 30px; border-bottom: 1px solid #334155; padding-bottom: 20px; }
@@ -48,69 +54,63 @@
 
     <script>
         const scriptUrl = "https://script.google.com/macros/s/AKfycbzqDRN0gCElKd_6eFB8swmyZf7a8wCXzFi4FYRN3qjO9JV144-ECoFbW42nfyk93cRX/exec";
+        
         function addLike(id) {
-            fetch(scriptUrl + "?id=" + id)
-                .then(() => { alert("Liked!"); location.reload(); })
-                .catch(err => alert("Error"));
+            // এনিমেশন: সাথে সাথে কাউন্ট বাড়ানো
+            const countSpan = document.getElementById('count-' + id);
+            countSpan.innerText = parseInt(countSpan.innerText) + 1;
+            
+            // গুগল শিটে ডাটা পাঠানো
+            fetch(scriptUrl + "?id=" + id).catch(err => console.error("Error"));
         }
     </script>
 
     <div class="card">
         <h3>Cricket</h3>
-        <p class="details">Cricket is a strategic bat-and-ball sport played between two teams. It is a game of patience, skill, and endurance, deeply loved in Bangladesh. It requires teamwork, intense focus, and physical fitness to excel in both batting and bowling.</p>
-        <button class="btn" onclick="addLike('l1')">Like</button>
+        <p class="details">Cricket is a strategic bat-and-ball sport played between two teams. It is a game of patience, skill, and endurance, deeply loved in Bangladesh.</p>
+        <button class="like-btn" onclick="addLike('l1')">❤️ <span class="like-count" id="count-l1">0</span></button>
         <button class="btn" onclick="navigator.share({title: 'Cricket', url: window.location.href})">Share</button>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
     </div>
 
     <div class="card">
         <h3>Football</h3>
-        <p class="details">Football is the world's most popular sport. It connects people across cultures, where 22 players chase glory on the pitch. It demands immense stamina, tactical brilliance, and the ability to work under high pressure in front of thousands of fans.</p>
-        <button class="btn" onclick="addLike('l2')">Like</button>
+        <p class="details">Football is the world's most popular sport. It demands immense stamina, tactical brilliance, and the ability to work under high pressure.</p>
+        <button class="like-btn" onclick="addLike('l2')">❤️ <span class="like-count" id="count-l2">0</span></button>
         <button class="btn" onclick="navigator.share({title: 'Football', url: window.location.href})">Share</button>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
     </div>
 
     <div class="card">
         <h3>Free Fire</h3>
-        <p class="details">Garena Free Fire is an intense battle royale game where 50 players compete in a shrinking zone. It requires quick thinking, survival skills, and accurate aiming to be the last survivor. The game is highly popular for its fast-paced action and competitive gameplay.</p>
-        <button class="btn" onclick="addLike('l3')">Like</button>
+        <p class="details">Garena Free Fire is an intense battle royale game where 50 players compete in a shrinking zone. It requires quick thinking and survival skills.</p>
+        <button class="like-btn" onclick="addLike('l3')">❤️ <span class="like-count" id="count-l3">0</span></button>
         <button class="btn" onclick="navigator.share({title: 'Free Fire', url: window.location.href})">Share</button>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
     </div>
 
     <div class="card">
         <h3>Anime & Video Gallery</h3>
-        <p class="details">Anime is a style of Japanese animation that features vibrant characters and imaginative storylines, ranging from action-packed battles to deep emotional life stories.</p>
-
         <div class="video-box">
-            <p><strong>Jinwoo Edit:</strong> The ultimate power of Sung Jinwoo from Solo Leveling.</p>
+            <p><strong>Jinwoo Edit</strong></p>
             <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/jinwoo-edit.mp4" type="video/mp4"></video>
-            <br><br>
-            <button class="btn" onclick="addLike('v1')">Like</button>
-            <button class="btn" onclick="navigator.share({title: 'Jinwoo Edit', url: window.location.href})">Share</button>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
+            <br>
+            <button class="like-btn" onclick="addLike('v1')">❤️ <span class="like-count" id="count-v1">0</span></button>
         </div>
-
         <div class="video-box">
-            <p><strong>Muzan Edit:</strong> The terrifying dominance of Kibutsuji Muzan from Demon Slayer.</p>
+            <p><strong>Muzan Edit</strong></p>
             <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/muzan-edit.mp4" type="video/mp4"></video>
-            <br><br>
-            <button class="btn" onclick="addLike('v2')">Like</button>
-            <button class="btn" onclick="navigator.share({title: 'Muzan Edit', url: window.location.href})">Share</button>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
+            <br>
+            <button class="like-btn" onclick="addLike('v2')">❤️ <span class="like-count" id="count-v2">0</span></button>
         </div>
-
         <div class="video-box">
-            <p><strong>Suzume Song:</strong> A serene and emotional musical masterpiece from the movie Suzume.</p>
-            <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/suzume-song.mp4" type="video/mp4"></video>
-            <br><br>
-            <button class="btn" onclick="addLike('v3')">Like</button>
-            <button class="btn" onclick="navigator.share({title: 'Suzume Song', url: window.location.href})">Share</button>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
+            <p><strong>Suzume Song</strong></p>
+            <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/suzume-song.mp4" type="video/mp4"></button>
+            <br>
+            <button class="like-btn" onclick="addLike('v3')">❤️ <span class="like-count" id="count-v3">0</span></button>
         </div>
     </div>
 </div>
 
 </body>
-    </html>
+</html>
