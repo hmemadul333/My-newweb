@@ -55,7 +55,6 @@
     <script>
         const scriptUrl = "https://script.google.com/macros/s/AKfycbyArdXwoWtIZo8GWoPR08lqWmg0ti-O_h0NtwEz_k-WBuz_lrPoCIBIYRLCWqe7CIKg/exec";
 
-        // পেজ লোড হওয়ার সময় স্ট্যাটাস চেক করা
         window.onload = function() {
             fetch(scriptUrl)
                 .then(res => res.json())
@@ -67,7 +66,6 @@
                             let el = document.getElementById('count-' + id);
                             if(el) {
                                 el.innerText = count;
-                                // চেক করা: আগে লাইক দেওয়া আছে কি না
                                 if (localStorage.getItem('liked_' + id) === 'true') {
                                     let btn = document.querySelector(`button[onclick="addLike('${id}', this)"]`);
                                     if (btn) btn.disabled = true;
@@ -79,28 +77,18 @@
         };
 
         function addLike(id, btnElement) {
-            // ডাবল ক্লিক ঠেকানোর জন্য সুরক্ষা
             if (localStorage.getItem('liked_' + id) === 'true') {
                 alert("আপনি অলরেডি লাইক দিয়েছেন!");
                 return;
             }
-
-            // লোকাল স্টোরেজ আপডেট
             localStorage.setItem('liked_' + id, 'true');
-            
-            // বাটন ডিজেবল ও কাউন্ট আপডেট
             btnElement.disabled = true;
             const countSpan = document.getElementById('count-' + id);
             countSpan.innerText = parseInt(countSpan.innerText) + 1;
-            
-            // সার্ভারে রিকোয়েস্ট পাঠানো
-            fetch(scriptUrl + "?id=" + id)
-                .catch(err => {
-                    console.error("Error:", err);
-                    alert("লাইক দিতে সমস্যা হয়েছে, আবার চেষ্টা করুন।");
-                    btnElement.disabled = false;
-                    localStorage.removeItem('liked_' + id);
-                });
+            fetch(scriptUrl + "?id=" + id).catch(err => {
+                btnElement.disabled = false;
+                localStorage.removeItem('liked_' + id);
+            });
         }
     </script>
 
@@ -156,6 +144,5 @@
         </div>
     </div>
 </div>
-
 </body>
 </html>
