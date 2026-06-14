@@ -53,7 +53,8 @@
     <div id="google_translate_element" style="margin-bottom: 20px;"></div>
 
     <script>
-        const scriptUrl = "https://script.google.com/macros/s/AKfycbz9jJi4r_OxPk0CT8SmJurK-1-GlMZlsqEbeLHi9u5vXQQ7qs4tHl_IEuAKbBKdCu1W/exec";
+        // নতুন আপডেট করা স্ক্রিপ্ট লিঙ্ক
+        const scriptUrl = "https://script.google.com/macros/s/AKfycbzpo8tZaTsIdgikAw-P2rc9Z_JCowyB-T2WMAL_LqoSyoSjno4n-qJ0KcunvsVK7kvJ/exec";
 
         window.onload = function() {
             fetch(scriptUrl)
@@ -71,18 +72,14 @@
         };
 
         function addLike(id, btnElement) {
-            // ১. বাটন ডিজেবল করা
             btnElement.disabled = true;
-
-            // ২. সাথে সাথে কাউন্ট বাড়ানো
             const countSpan = document.getElementById('count-' + id);
             countSpan.innerText = parseInt(countSpan.innerText) + 1;
             
-            // ৩. গুগল শিটে আপডেট পাঠানো
             fetch(scriptUrl + "?id=" + id)
                 .catch(err => {
                     console.error("Error:", err);
-                    btnElement.disabled = false; // এরর হলে আবার ইনেবল করা
+                    btnElement.disabled = false;
                 });
         }
     </script>
