@@ -39,7 +39,7 @@
 
 <div class="container">
     <div class="header-box">
-        <img src="https://i.imgur.com/k6lD80F.png" alt="Profile" class="profile-img">
+        <img src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/10802.jpg" alt="Profile" class="profile-img">
         <h1 style="margin:0; font-size: 2rem;">www.funnysite.com</h1>
         <p style="margin:10px 0 0 0; opacity: 0.8;">Explore my interests and thoughts</p>
     </div>
@@ -48,21 +48,16 @@
 
     <script>
         const scriptUrl = "https://script.google.com/macros/s/AKfycbzqDRN0gCElKd_6eFB8swmyZf7a8wCXzFi4FYRN3qjO9JV144-ECoFbW42nfyk93cRX/exec";
-
         function addLike(id) {
-            alert("Processing your like...");
             fetch(scriptUrl + "?id=" + id)
-                .then(() => {
-                    alert("Liked successfully!");
-                    location.reload(); 
-                })
-                .catch(err => alert("Error: " + err));
+                .then(() => { alert("Liked!"); location.reload(); })
+                .catch(err => alert("Error"));
         }
     </script>
 
     <div class="card">
         <h3>Cricket</h3>
-        <p class="details">Cricket is a strategic bat-and-ball sport played between two teams. It is a game of patience, skill, and endurance, deeply loved in Bangladesh.</p>
+        <p class="details">Cricket is a strategic bat-and-ball sport played between two teams. It is a game of patience, skill, and endurance, deeply loved in Bangladesh. It requires teamwork, intense focus, and physical fitness to excel in both batting and bowling.</p>
         <button class="btn" onclick="addLike('l1')">Like</button>
         <button class="btn" onclick="navigator.share({title: 'Cricket', url: window.location.href})">Share</button>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
@@ -70,7 +65,7 @@
 
     <div class="card">
         <h3>Football</h3>
-        <p class="details">Football is the world's most popular sport. It connects people across cultures, where 22 players chase glory on the pitch.</p>
+        <p class="details">Football is the world's most popular sport. It connects people across cultures, where 22 players chase glory on the pitch. It demands immense stamina, tactical brilliance, and the ability to work under high pressure in front of thousands of fans.</p>
         <button class="btn" onclick="addLike('l2')">Like</button>
         <button class="btn" onclick="navigator.share({title: 'Football', url: window.location.href})">Share</button>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
@@ -78,7 +73,7 @@
 
     <div class="card">
         <h3>Free Fire</h3>
-        <p class="details">Garena Free Fire is an intense battle royale game where 50 players compete in a shrinking zone. It requires quick thinking and survival skills.</p>
+        <p class="details">Garena Free Fire is an intense battle royale game where 50 players compete in a shrinking zone. It requires quick thinking, survival skills, and accurate aiming to be the last survivor. The game is highly popular for its fast-paced action and competitive gameplay.</p>
         <button class="btn" onclick="addLike('l3')">Like</button>
         <button class="btn" onclick="navigator.share({title: 'Free Fire', url: window.location.href})">Share</button>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9VApsmSJrnDwu2HFf29SPIlybLgsw_q6_iTEdPbv1MzbCGg/viewform" target="_blank" class="btn" style="background:#22c55e;">Comment</a>
@@ -86,10 +81,10 @@
 
     <div class="card">
         <h3>Anime & Video Gallery</h3>
-        <p class="details">Anime is a style of Japanese animation that features vibrant characters and imaginative storylines.</p>
+        <p class="details">Anime is a style of Japanese animation that features vibrant characters and imaginative storylines, ranging from action-packed battles to deep emotional life stories.</p>
 
         <div class="video-box">
-            <p><strong>Jinwoo Edit:</strong></p>
+            <p><strong>Jinwoo Edit:</strong> The ultimate power of Sung Jinwoo from Solo Leveling.</p>
             <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/jinwoo-edit.mp4" type="video/mp4"></video>
             <br><br>
             <button class="btn" onclick="addLike('v1')">Like</button>
@@ -98,7 +93,7 @@
         </div>
 
         <div class="video-box">
-            <p><strong>Muzan Edit:</strong></p>
+            <p><strong>Muzan Edit:</strong> The terrifying dominance of Kibutsuji Muzan from Demon Slayer.</p>
             <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/muzan-edit.mp4" type="video/mp4"></video>
             <br><br>
             <button class="btn" onclick="addLike('v2')">Like</button>
@@ -107,7 +102,7 @@
         </div>
 
         <div class="video-box">
-            <p><strong>Suzume Song:</strong></p>
+            <p><strong>Suzume Song:</strong> A serene and emotional musical masterpiece from the movie Suzume.</p>
             <video controls><source src="https://raw.githubusercontent.com/hmemadul333/My-newweb/main/suzume-song.mp4" type="video/mp4"></video>
             <br><br>
             <button class="btn" onclick="addLike('v3')">Like</button>
@@ -118,4 +113,4 @@
 </div>
 
 </body>
-</html>
+                </html>
